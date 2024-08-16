@@ -76,6 +76,12 @@ namespace QuizzVitaProyecto
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("~/Principal/Home.aspx");
+        }
+
     }
 
 }

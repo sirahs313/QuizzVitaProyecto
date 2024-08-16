@@ -1,13 +1,12 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="QuizzVitaProyecto.SiteMaster" %>
 
 <!DOCTYPE html>
-
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title><%: Page.Title %> - QuizzVita</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -15,70 +14,101 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <!-- CSS personalizado -->
+    <style>
+        body {
+            font-family: 'Sarlotte', sans-serif;
+            background-color: #FFF;
+            color: #021425;
+
+        }
+   
+        .navbar {
+            background-color: rgba(164, 235, 210, 0.90);
+        }
+        .navbar-brand {
+            font-family: 'Coffee Spark', sans-serif;
+            font-size: 24px;
+            color: black;
+        }
+        .navbar-nav .nav-link {
+            color: black;
+        }
+        .container.body-content {
+            padding: 20px;
+            margin-top: 50px;
+        }
+        footer {
+            background-color: rgba(239, 237, 237, 0.90);
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .circle-background {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background-color: rgba(164, 236, 210, 0.72);
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
+       <asp:ScriptManager runat="server">
+    <Scripts>
+   
+        <asp:ScriptReference Name="MsAjaxBundle" />
+        <asp:ScriptReference Name="jquery" />
+        <asp:ScriptReference Name="WebFormsBundle" />
+      
+    </Scripts>
+</asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Acerca de</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contacto</a></li>
-                    </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="navbar-nav navbar-right">
-                                <li><a runat="server" class="nav-link" href="~/Account/Register">Registrarse</a></li>
-                                <li><a runat="server" class="nav-link" href="~/Account/Login">Iniciar sesión</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="navbar-nav navbar-right">
-                                <li><a runat="server" class="nav-link" href="~/Account/Manage" title="Manage your account">Hola, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" CssClass="nav-link" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
-                </div>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-sm navbar-light">
+    <div class="container">
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-between">
+            <!-- Imágenes de la izquierda -->
+            <ul class="navbar-nav d-flex align-items-center">
+                <li class="nav-item">
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="/Principal/img/inicio.png" AlternateText="Inicio" OnClick="ImageButton1_Click" />
+                </li>
+            </ul>
+            <!-- Imágenes de la derecha -->
+            <div class="d-flex align-items-center">
+                <asp:ImageButton ID="Login" runat="server" ImageUrl="/Principal/img/login.png" AlternateText="Login" OnClick="ImageButton1_Click" />
+                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="/Principal/img/menu.png" AlternateText="Menu" OnClick="ImageButton1_Click" />
             </div>
-        </nav>
+        </div>
+    </div>
+</nav>
+
+        <!-- Contenido de la página -->
         <div class="container body-content">
+            <!-- Circulo de fondo -->
+            <div class="circle-background" style="left: 50%; top: 200px;"></div>
+
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <!-- Aquí irá el contenido específico de cada página -->
             </asp:ContentPlaceHolder>
-            <hr />
+
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+                <a href="~/Privacy" style="margin-right: 20px;">Aviso de Privacidad</a>
+                <a href="~/Terms">Términos y Condiciones</a>
+                <p>&copy; <%: DateTime.Now.Year %> - QuizzVita</p>
             </footer>
         </div>
     </form>
+
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
-    </asp:PlaceHolder></body>
+    </asp:PlaceHolder>
+</body>
 </html>
