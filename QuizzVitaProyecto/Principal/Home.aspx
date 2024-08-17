@@ -14,7 +14,7 @@
             <img class="SinTexto1" style="width: 255px; height: 263px; left: 219px; top: 380px; position: absolute" src="img/logo.png" />
             
             <div class="DescubreTuBienestarEmocionalATravSDeNuestrosQuizzesInteractivosNosPreocupamosPorTuSaludMentalYQueremosAyudarteAIdentificarYEnfrentarCualquierDesafO" style="width: 350px; height: 222px; left: 898px; top: 200px; position: absolute; text-align: center; color: black; font-size: 28px; font-family: Sarlotte; font-weight: 400; letter-spacing: 2.10px; line-height: 1.5; word-wrap: break-word">
-                Descubre tu bienestar emocional a través de nuestros quizzes interactivos. Nos preocupamos por tu salud mental y queremos ayudarte a identificar y enfrentar cualquier desafío.
+                Descubre tu bienestar emocional a través de nuestros maravillosos quizzes interactivos. Nos preocupamos por tu salud mental y queremos ayudarte a identificar y enfrentar cualquier desafío.
             </div>
 
             
