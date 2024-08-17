@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="QuizzVitaProyecto.Principal.Home" %>
+﻿<%@ Page Title="QuizzVita" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="QuizzVitaProyecto.Principal.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Panel ID="Panel1" runat="server">
         <div class="DesktopPrincipal" style="width: 1440px; height: 1024px; position: relative; background: white">
            
-               <div class="Quizzvita" style="width: 694px; height: 105px; left: 0px; top: 200px; position: absolute; text-align: center; color: black; font-size: 100px; font-family: Coffee Spark; font-weight: 800; word-wrap: break-word">
+               <div class="Quizzvita" style="width: 694px; height: 105px; left: 0px; top: 201px; position: absolute; text-align: center; color: black; font-size: 100px; font-family: Coffee Spark; font-weight: 800; word-wrap: break-word">
         <img src="/img/Quizz.png" alt="QuizzVita" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
     </div>
 
