@@ -76,18 +76,18 @@
 
             <!-- Preguntas -->
             <asp:Repeater ID="QuestionsRepeater" runat="server">
-                <ItemTemplate>
-                    <div class="form-group">
-                        <asp:Label ID="QuestionLabel" runat="server" Text='<%# Eval("QuestionText") %>' CssClass="form-group"></asp:Label>
-                        <div>
-                            <asp:RadioButton ID="Option1" runat="server" GroupName='<%# Container.ItemIndex %>' Text='<%# Eval("Options[0]") %>' />
-                            <asp:RadioButton ID="Option2" runat="server" GroupName='<%# Container.ItemIndex %>' Text='<%# Eval("Options[1]") %>' />
-                            <asp:RadioButton ID="Option3" runat="server" GroupName='<%# Container.ItemIndex %>' Text='<%# Eval("Options[2]") %>' />
-                            <asp:RadioButton ID="Option4" runat="server" GroupName='<%# Container.ItemIndex %>' Text='<%# Eval("Options[3]") %>' />
-                        </div>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
+    <ItemTemplate>
+        <div class="form-group">
+            <asp:Label ID="QuestionLabel" runat="server" Text='<%# Eval("QuestionText") %>' CssClass="form-group"></asp:Label>
+            <div>
+                <asp:RadioButton ID="Option1" runat="server" GroupName='<%# "Group" + Container.ItemIndex %>' Text='<%# Eval("Options[0]") %>' />
+                <asp:RadioButton ID="Option2" runat="server" GroupName='<%# "Group" + Container.ItemIndex %>' Text='<%# Eval("Options[1]") %>' />
+                <asp:RadioButton ID="Option3" runat="server" GroupName='<%# "Group" + Container.ItemIndex %>' Text='<%# Eval("Options[2]") %>' />
+                <asp:RadioButton ID="Option4" runat="server" GroupName='<%# "Group" + Container.ItemIndex %>' Text='<%# Eval("Options[3]") %>' />
+            </div>
+        </div>
+    </ItemTemplate>
+</asp:Repeater>
 
             <asp:Button ID="SubmitButton" runat="server" Text="Enviar respuestas" OnClick="SubmitButton_Click" CssClass="btn" />
         </div>
