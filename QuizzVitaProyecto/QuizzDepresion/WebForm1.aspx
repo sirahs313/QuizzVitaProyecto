@@ -66,10 +66,10 @@
     <form id="form1" runat="server">
         <!-- Barra de Navegación -->
         <div class="navbar">
-    <asp:ImageButton ID="HomeButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/casainicio.png" PostBackUrl="~/Home.aspx" Style="width: 30px; height: 30px;" />
-    <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/perfil.png" PostBackUrl="~/Profile.aspx" Style="width: 30px; height: 30px;" />
-    <asp:ImageButton ID="MenuButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/opcionesin.png" PostBackUrl="~/Menu.aspx" Style="width: 30px; height: 30px;" />
-        </div>
+    <asp:ImageButton ID="HomeButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/casainicio.png" PostBackUrl="~/Home.aspx" CssClass="navbar-img" />
+    <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/perdil.png" PostBackUrl="~/Profile.aspx" CssClass="navbar-img" />
+    <asp:ImageButton ID="MenuButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/opcionesin.png" PostBackUrl="~/Menu.aspx" CssClass="navbar-img" />
+</div>
 
 
         <!-- Contenido Principal -->
@@ -88,4 +88,3 @@
     </form>
 </body>
 </html>
-
