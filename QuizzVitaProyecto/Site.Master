@@ -295,14 +295,14 @@
                     <label for="password-register" class="label2">Contraseña</label>
                     <input type="password" id="password-register" name="password-register" class="input2" minlength="6" title="La contraseña debe tener al menos 6 caracteres" required />
 
-                    <div class="button-container" style="text-align: center;">
-                        <button type="button" class="btn btn-register2" onclick="submitRegisterForm()">Registrarse</button>
+                                    <div class="button-container" style="text-align: center;">
+                                        <button type="button" class="btn btn-register2" onclick="submitRegisterForm()">Registrarse</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+                </div>
 
             </div>
         </nav>
