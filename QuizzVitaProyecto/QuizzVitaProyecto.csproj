@@ -227,9 +227,6 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="imagenes\hogar.png" />
-    <Content Include="imagenes\menu.png" />
-    <Content Include="imagenes\quizz1.png" />
     <Content Include="Principal\Home.aspx" />
     <Content Include="Principal\img\close-icon.png" />
     <Content Include="Principal\img\Letter.png" />
