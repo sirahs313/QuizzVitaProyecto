@@ -281,19 +281,19 @@
                 <img src="/Principal/img/reg.png" alt="Registro" style="display: block; margin: 0 auto;" />
                 <form id="registerForm" method="post" >
                     <label for="name" class="label2">Nombre</label>
-<input type="text" id="name" name="name" class="input2" />
+                    <input type="text" id="name" name="name" class="input2" />
 
-<label for="surname" class="label2">Apellidos</label>
-<input type="text" id="surname" name="surname" class="input2" />
+                    <label for="surname" class="label2">Apellidos</label>
+                    <input type="text" id="surname" name="surname" class="input2" />
 
-<label for="years" class="label2">Edad</label>
-<input type="text" id="years" name="years" class="input2" />
+                    <label for="years" class="label2">Edad</label>
+                    <input type="text" id="years" name="years" class="input2" />
 
-<label for="email-register" class="label2">Correo electrónico</label>
-<input type="email" id="email-register" name="email-register" class="input2" />
+                    <label for="email-register" class="label2">Correo electrónico</label>
+                    <input type="email" id="email-register" name="email-register" class="input2" />
 
-<label for="password-register" class="label2">Contraseña</label>
-<input type="password" id="password-register" name="password-register" class="input2" />
+                    <label for="password-register" class="label2">Contraseña</label>
+                    <input type="password" id="password-register" name="password-register" class="input2" />
 
                     <div class="button-container" style="text-align: center;">
                         <button type="button" class="btn btn-register2" onclick="submitRegisterForm()">Registrarse</button>
@@ -317,54 +317,50 @@
     </form>
 
     <script>
-    function submitRegisterForm() {
-        console.log('submitRegisterForm called');
-        var form = document.getElementById('registerForm');
-        var formData = new FormData(form);
-        fetch('/Registro', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log('Server response:', data);
-            alert('Registro exitoso');
-            document.getElementById('registerModal').style.display = 'none';
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Error en el registro');
-        });
-    }
+        function submitRegisterForm() {
+            console.log('submitRegisterForm called');
+            var form = document.getElementById('registerForm');
+            var formData = new FormData(form);
+            fetch('/Registro', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log('Server response:', data);
+                    alert('Registro exitoso');
+                    document.getElementById('registerModal').style.display = 'none';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error en el registro');
+                });
+        }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('openModal').onclick = function () {
-            document.getElementById('loginModal').style.display = 'block';
-            document.getElementById('registerModal').style.display = 'none';
-        };
-
-        document.getElementById('openRegisterModal').onclick = function () {
-            document.getElementById('loginModal').style.display = 'none';
-            document.getElementById('registerModal').style.display = 'block';
-        };
-
-        document.querySelectorAll('.btn-close').forEach(button => {
-            button.onclick = function () {
-                document.getElementById('loginModal').style.display = 'none';
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('openModal').onclick = function () {
+                document.getElementById('loginModal').style.display = 'block';
                 document.getElementById('registerModal').style.display = 'none';
             };
-        });
 
-        window.onclick = function (event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
+            document.getElementById('openRegisterModal').onclick = function () {
                 document.getElementById('loginModal').style.display = 'none';
-                document.getElementById('registerModal').style.display = 'none';
-            }
-        };
-    });
+                document.getElementById('registerModal').style.display = 'block';
+            };
+
+            document.querySelectorAll('.btn-close').forEach(button => {
+                button.onclick = function () {
+                    document.getElementById('loginModal').style.display = 'none';
+                    document.getElementById('registerModal').style.display = 'none';
+                };
+            });
+
+            window.onclick = function (event) {
+                if (event.target.classList.contains('modal')) {
+                    event.target.style.display = 'none';
+                    document.getElementById('loginModal').style.display = 'none';
+                    document.getElementById('registerModal').style.display = 'none';
+                }
+            };
+        });
     </script>
-
-
-</body>
-</html>
