@@ -207,6 +207,14 @@
             height: 46px;
         }
 
+        .nav-link.active {
+            color: #A4ECD2; /* Color original */
+            transition: color 0.5s ease; /* Transición suave */
+        }
+
+            .nav-link.active:hover {
+                background-color: rgb(164 236 210 / 0.2); /* Color al pasar el cursor (puedes cambiarlo al color que prefieras) */
+            }
 
 
     </style>
@@ -253,21 +261,26 @@
                             style="cursor: pointer;" />
                     </div>
                     <div style="margin-top:10%; padding-top:9%; padding-bottom:9%; text-align:center; border-bottom: 2px solid #A4ECD2; border-top: 2px solid #A4ECD2;">
-                        <h1 class="offcanvas-title" id="offcanvasNavbarLabel">Quizzes</h1>
+                        <h1 class="offcanvas-title" >Quizzes</h1>
                     </div>
-                    <div class="offcanvas-body">
+                    <div class="offcanvas-body" style="margin-bottom:0%">
                         <ul class="navbar-nav justify-content-end flex-grow-1">
                             <li class="nav-item" style="text-align:center;">
-                                <a class="nav-link active" href="#" style="color:#A4ECD2; margin-top:5%; padding-top:7%; padding-bottom:7%">Depresion</a>
+                                <a class="nav-link active" href="QuizzDepresion/WebForm1.aspx" style="color:#A4ECD2; margin-top:8%; padding-top:8%; padding-bottom:7%"><h5>Depresion</h5></a>
                             </li>
                             <li class="nav-item" style="text-align:center;">
-                                <a class="nav-link active" href="#" style="color:#A4ECD2; margin-top:5%; padding-top:7%; padding-bottom:7%">Ansiedad</a>
+                                <a class="nav-link active" href="QuizzAnsiedad/QAnsiedad.aspx" style="color:#A4ECD2; margin-top:8%; padding-top:8%; padding-bottom:7%"><h5>Ansiedad</h5></a>
                             </li>
                             <li class="nav-item" style="text-align:center;">
-                                <a class="nav-link active" href="#" style="color:#A4ECD2; margin-top:5%; padding-top:7%; padding-bottom:7%">Estres</a>
+                                <a class="nav-link active" href="QuizzEstres/Estres.aspx" style="color:#A4ECD2; margin-top:8%; padding-top:8%; padding-bottom:7%"><h5>Estres</h5></a>
                             </li>
                         </ul>
+
+                        <div style="margin-top:15%; padding-top:9%; padding-bottom:9%; text-align:center; border-bottom: 2px solid #A4ECD2; border-top: 2px solid #A4ECD2;">
+                            <h3 class="offcanvas-title" >Informacion<br />de apoyo</h3>
+                        </div>
                     </div>
+                    
                 </div>
 
 
