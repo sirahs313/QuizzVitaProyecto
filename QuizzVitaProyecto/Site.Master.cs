@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using System.Web.Http;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,131 +14,57 @@ namespace QuizzVitaProyecto
 {
     public partial class SiteMaster : MasterPage
     {
-        private const string AntiXsrfTokenKey = "__AntiXsrfToken";
-        private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
-        private string _antiXsrfTokenValue;
-
-        protected void Page_Init(object sender, EventArgs e)
-        {
-            var requestCookie = Request.Cookies[AntiXsrfTokenKey];
-            Guid requestCookieGuidValue;
-            if (requestCookie != null && Guid.TryParse(requestCookie.Value, out requestCookieGuidValue))
-            {
-                _antiXsrfTokenValue = requestCookie.Value;
-                Page.ViewStateUserKey = _antiXsrfTokenValue;
-            }
-            else
-            {
-                _antiXsrfTokenValue = Guid.NewGuid().ToString("N");
-                Page.ViewStateUserKey = _antiXsrfTokenValue;
-
-                var responseCookie = new HttpCookie(AntiXsrfTokenKey)
-                {
-                    HttpOnly = true,
-                    Value = _antiXsrfTokenValue
-                };
-                if (FormsAuthentication.RequireSSL && Request.IsSecureConnection)
-                {
-                    responseCookie.Secure = true;
-                }
-                Response.Cookies.Set(responseCookie);
-            }
-
-            Page.PreLoad += master_Page_PreLoad;
-        }
-
-        protected void master_Page_PreLoad(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                ViewState[AntiXsrfTokenKey] = Page.ViewStateUserKey;
-                ViewState[AntiXsrfUserNameKey] = Context.User.Identity.Name ?? String.Empty;
-            }
-            else
-            {
-                if ((string)ViewState[AntiXsrfTokenKey] != _antiXsrfTokenValue
-                    || (string)ViewState[AntiXsrfUserNameKey] != (Context.User.Identity.Name ?? String.Empty))
-                {
-                    throw new InvalidOperationException("Error de validación del token Anti-XSRF.");
-                }
-            }
-        }
+        // Código existente...
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Verifica si la solicitud es del formulario de registro
-            if (IsPostBack && Request.Form["name"] != null)
+            if (IsPostBack && Request.Form["email"] != null)
             {
-                btnRegister_Click(sender, e);
+                btnLogin_Click(sender, e);
             }
         }
 
-        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-        }
+            string email = Request.Form["email"];
+            string password = Request.Form["password"];
 
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("~/Principal/Home.aspx");
-        }
-
-        protected void btnRegister_Click(object sender, EventArgs e)
-        {
-            try
+            if (AuthenticateUser(email, password))
             {
-                // Obtén los datos del formulario
-                string nombre = Request.Form["name"];
-                string apellidos = Request.Form["surname"];
-                int edad;
-                if (!int.TryParse(Request.Form["years"], out edad))
-                {
-                    Response.Write("<script>alert('Edad no válida');</script>");
-                    return;
-                }
-                string email = Request.Form["email-register"];
-                string password = Request.Form["password-register"];
-
-                if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellidos) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
-                {
-                    Response.Write("<script>alert('Todos los campos son obligatorios');</script>");
-                    return;
-                }
-
-                string hashedPassword = HashPassword(password);
-
-                // Conectar a la base de datos
-                using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
-                {
-                    connection.Open();
-
-                    // Define la consulta SQL con parámetros
-                    string sql = "INSERT INTO [dbo].[Users] " +
-                                 "([Nombre], [Apellidos], [email], [Age], [Password], [CreatedAt]) " +
-                                 "VALUES (@Nombre, @Apellidos, @Email, @Age, @Password, @CreatedAt)";
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        // Usa parámetros para evitar inyección SQL
-                        command.Parameters.AddWithValue("@Nombre", nombre);
-                        command.Parameters.AddWithValue("@Apellidos", apellidos);
-                        command.Parameters.AddWithValue("@Email", email);
-                        command.Parameters.AddWithValue("@Age", edad);
-                        command.Parameters.AddWithValue("@Password", hashedPassword);
-                        command.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
-
-                // Mensaje de éxito
-                Response.Write("<script>alert('Registro exitoso');</script>");
+                FormsAuthentication.SetAuthCookie(email, false);
+                Response.Redirect("~/Principal/Home.aspx");
+               
             }
-            catch (Exception ex)
+            else
             {
-                // Manejo de excepciones
-                // Considera usar un sistema de logging aquí en lugar de mostrar el error en la página
-                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+                Response.Write("<script>alert('Correo electrónico o contraseña incorrectos');</script>");
+            }
+        }
+
+        private bool AuthenticateUser(string email, string password)
+        {
+            // Hash de la contraseña ingresada
+            string hashedPassword = HashPassword(password);
+
+            // Conectar a la base de datos
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                connection.Open();
+
+                // Define la consulta SQL con parámetros
+                string sql = "SELECT COUNT(1) FROM [dbo].[Users] WHERE [email] = @Email AND [Password] = @Password";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    // Usa parámetros para evitar inyección SQL
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@Password", password);
+
+                    int count = (int)command.ExecuteScalar();
+
+                    // Si se encuentra un registro, las credenciales son correctas
+                    return count == 1;
+                }
             }
         }
 
