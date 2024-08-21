@@ -1,11 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="QuizzVitaProyecto.QuizzDepresion.WebForm1" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Quizz de Ansiedad</title>
+    <title>Quizz de Depresion</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,15 +22,21 @@
         .navbar img {
             width: 30px;
             height: 30px;
-          
         }
         .container {
             width: 60%;
             margin: auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #e6ffff;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        .containerl {
+            width: 60%;
+            margin: auto;
+            padding: 10px;
+            border-radius: 8px;
             margin-top: 50px;
         }
         h1 {
@@ -62,30 +67,44 @@
         }
     </style>
 </head>
+
 <body>
     <form id="form1" runat="server">
+        
         <!-- Barra de Navegación -->
         <div class="navbar">
-    <asp:ImageButton ID="HomeButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/casainicio.png" PostBackUrl="~/Home.aspx" Style="width: 30px; height: 30px;" />
-    <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/perfil.png" PostBackUrl="~/Profile.aspx" Style="width: 30px; height: 30px;" />
-    <asp:ImageButton ID="MenuButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/opcionesin.png" PostBackUrl="~/Menu.aspx" Style="width: 30px; height: 30px;" />
+            <asp:ImageButton ID="HomeButton" runat="server" ImageUrl="/Principal/img/inicio.png" PostBackUrl="~/Home.aspx" Style="width: 30px; height: 50px;" />
+            <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="/Principal/img/login.png" PostBackUrl="~/Profile.aspx" Style="width: 30px; height: 50px;" />
+            <asp:ImageButton ID="MenuButton" runat="server" ImageUrl="/Principal/img/menu.png" PostBackUrl="~/Menu.aspx" Style="width: 30px; height: 50px;" />
         </div>
 
+        <div class="containerl">
+            <asp:Image ID="Logo" runat="server" ImageUrl="/Principal/img/logo.png" style="width:70px; display:block; margin:0 auto;" />
+            <h1>Quizz de Depresion</h1>
+            <p>Lea cada oración y después decida qué respuesta representa mejor su situación. No hay respuestas correctas o incorrectas. Este Quizz está diseñado como un predíagnóstico para corroborar sus resultados, consulte con un especialista.</p>
+        </div>
 
         <!-- Contenido Principal -->
         <div class="container">
-            <h1>Quizz de Ansiedad</h1>
-            <p>Lea cada oración y después decida qué respuesta representa mejor su situación. No hay respuestas correctas o incorrectas. Este Quizz está diseñado como un predíagnóstico para corroborar sus resultados consulte con un especialista.</p>
-            <asp:Label ID="QuestionLabel" runat="server" Text="1. En las últimas dos semanas, ¿con qué frecuencia te has sentido nervioso, ansioso o al borde de un ataque de nervios?" CssClass="form-group"></asp:Label>
-            <div class="form-group">
-                <asp:RadioButton ID="Option1" runat="server" GroupName="AnxietyQuestion" Text="Nunca" />
-                <asp:RadioButton ID="Option2" runat="server" GroupName="AnxietyQuestion" Text="Varios días" />
-                <asp:RadioButton ID="Option3" runat="server" GroupName="AnxietyQuestion" Text="Más de la mitad de los días" />
-                <asp:RadioButton ID="Option4" runat="server" GroupName="AnxietyQuestion" Text="Casi todos los días" />
+            
+
+            <!-- Preguntas -->
+            <asp:Repeater ID="QuestionsRepeater" runat="server">
+    <ItemTemplate>
+        <div class="form-group">
+            <asp:Label ID="QuestionLabel" runat="server" Text='<%# Eval("QuestionText") %>' CssClass="form-group"></asp:Label>
+            <div>
+                <asp:RadioButton ID="Option1" runat="server" GroupName='<%# "Group" + Container.ItemIndex %>' Text='<%# Eval("Options[0]") %>' />
+                <asp:RadioButton ID="Option2" runat="server" GroupName='<%# "Group" + Container.ItemIndex %>' Text='<%# Eval("Options[1]") %>' />
+                <asp:RadioButton ID="Option3" runat="server" GroupName='<%# "Group" + Container.ItemIndex %>' Text='<%# Eval("Options[2]") %>' />
+                <asp:RadioButton ID="Option4" runat="server" GroupName='<%# "Group" + Container.ItemIndex %>' Text='<%# Eval("Options[3]") %>' />
             </div>
+        </div>
+    </ItemTemplate>
+</asp:Repeater>
+
             <asp:Button ID="SubmitButton" runat="server" Text="Enviar respuestas" OnClick="SubmitButton_Click" CssClass="btn" />
         </div>
     </form>
 </body>
 </html>
-
