@@ -42,13 +42,13 @@ namespace QuizzVitaProyecto.QuizzDepresion
         protected global::System.Web.UI.WebControls.ImageButton ProfileButton;
 
         /// <summary>
-        /// Control MenuButton.
+        /// Control ImageButton1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton MenuButton;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
 
         /// <summary>
         /// Control Logo.
