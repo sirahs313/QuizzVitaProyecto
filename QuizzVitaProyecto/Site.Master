@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - QuizzVita</title>
@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     <!-- CSS personalizado -->
@@ -20,51 +20,202 @@
             font-family: 'Sarlotte', sans-serif;
             background-color: #FFF;
             color: #021425;
-
         }
-   
+
         .navbar {
             background-color: rgba(164, 235, 210, 0.90);
         }
+
         .navbar-brand {
             font-family: 'Coffee Spark', sans-serif;
             font-size: 24px;
             color: black;
         }
+
         .navbar-nav .nav-link {
             color: black;
         }
+
         .container.body-content {
             padding: 20px;
             margin-top: 50px;
         }
+
         footer {
             background-color: rgba(239, 237, 237, 0.90);
             padding: 10px;
             text-align: center;
             font-size: 18px;
         }
-        /*.circle-background {
+
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); /* Fondo oscuro */
+        }
+
+        .modal-content-wrapper {
             position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background-color: rgba(164, 236, 210, 0.72);
-            z-index: -1;
-        }*/
+            width: 622px;
+            height: 767px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Rectangle37 {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #57CEB3 0%, #1B4A5C 100%);
+            border-radius: 15px;
+            position: relative; /* Cambiado de absolute a relative */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Rectangle23 {
+            width: 88%;
+            height: 90%;
+            background: rgba(217, 217, 217, 0.60);
+            border-radius: 20px;
+            position: absolute; /* Cambiado de absolute a absolute para centrarlo dentro del Rectangle37 */
+            top: 5%;
+            left: 6%;
+            padding: 150px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Centra el contenido verticalmente */
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title-image {
+            width: 270px;
+            height: 56px;
+            display: block; /* Asegura que la imagen se maneje como un bloque */
+            margin: 10px 0; /* Ajusta el margen según sea necesario */
+        }
+
+        .logo {
+            width: 94px;
+            height: 94px;
+            margin-top: 10px;
+        }
+
+        .title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .label {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 25px;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .input {
+            width: 100%; /* Ocupa todo el ancho del formulario */
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: 'Quicksand', sans-serif;
+            box-sizing: border-box; /* Incluye padding y border en el ancho total */
+        }
+
+        .label2 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 19px;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+            width: 100%;
+        }
+
+     .input2 {
+            width: 400px; /* Ancho fijo de 414px */
+            height: 46px; /* Alto fijo de 46px */
+            padding: 8px; /* Espaciado interno */
+            margin-bottom: 15px; /* Espaciado inferior */
+            border-radius: 5px; /* Bordes redondeados */
+            border: 1px solid #ccc; /* Borde gris claro */
+            font-family: 'Quicksand', sans-serif; /* Fuente personalizada */
+            box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+        }
+
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            gap: 10px; /* Espacio entre los botones */
+        }
+
+        .btn {
+            flex: 1; /* Ocupa el mismo espacio disponible */
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Quicksand', sans-serif;
+            cursor: pointer;
+            font-size: 14px; /* Tamaño de fuente ajustado */
+        }
+
+        .btn-login {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .btn-register {
+            background-color: #A4ECD2;
+            color: #333;
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
+
+        .close-icon {
+            width: 46px;
+            height: 46px;
+        }
+
     </style>
 </head>
 <body>
     <form runat="server">
-       <asp:ScriptManager runat="server">
-    <Scripts>
-   
-        <asp:ScriptReference Name="MsAjaxBundle" />
-        <asp:ScriptReference Name="jquery" />
-        <asp:ScriptReference Name="WebFormsBundle" />
-      
-    </Scripts>
-</asp:ScriptManager>
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+            </Scripts>
+        </asp:ScriptManager>
 
         <nav class="navbar bg-body-tertiary fixed-top">
             <div class="container-fluid" style="padding-left: 4%; padding-right: 4%">
@@ -75,7 +226,7 @@
 
                 <!-- Contenedor para las imágenes a la derecha -->
                 <div class="d-flex">
-                    <a class="navbar-brand" href="#" style="margin-right:15%">
+                    <a class="navbar-brand" href="#" style="margin-right: 15%" id="openModal">
                         <asp:Image ID="Image2" runat="server" ImageUrl="/Principal/img/login.png" />
                     </a>
                     <img src="/Principal/img/menu.png"
@@ -85,58 +236,119 @@
                         data-bs-target="#offcanvasNavbar"
                         aria-controls="offcanvasNavbar"
                         aria-label="Toggle navigation"
-                        style="cursor: pointer; border: none; margin-bottom:3%; margin-top:3%;" />
+                        style="cursor: pointer; border: none; margin-bottom: 3%; margin-top: 3%;" />
                 </div>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+
+                <!-- Ventana emergente de inicio de sesión -->
+                <div id="loginModal" class="modal">
+                    <div class="modal-content-wrapper">
+                        <div class="Rectangle37">
+                            <div class="Rectangle23">
+                                <!-- Botón de cerrar -->
+                                <button class="btn-close">
+                                    <img src="/Principal/img/close-icon.png" alt="Cerrar" class="close-icon" />
+                                </button>
+                                <div class="DesktopLogin">
+                                    <div class="login-header">
+                                        <img src="/Principal/img/Letter.png" class="title-image" />
+                                        <img src="/Principal/img/logo.png" alt="Logo" class="logo" />
+                                    </div>
+                                    <form class="login-form">
+                                        <label for="email" class="label">Correo electrónico</label>
+                                        <input type="email" id="email" class="input" />
+
+                                        <label for="password" class="label">Contraseña</label>
+                                        <input type="password" id="password" class="input" />
+
+                                        <div class="button-container">
+                                            <button type="submit" class="btn btn-login">Iniciar sesión</button>
+                                            <button type="button" class="btn btn-register" id="openRegisterModal">Registrarse</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Ventana emergente de registro -->
+            <div id="registerModal" class="modal">
+                <div class="modal-content-wrapper">
+                    <div class="Rectangle37" style="background: #FFFFFF; padding: 20px;">
+
+                        <div class="Rectangle23" style="background: #CBCBCB; padding: 20px;">
+                            <!-- Botón de cerrar -->
+                            <button class="btn-close">
+                                <img src="/Principal/img/close-icon.png" alt="Cerrar" class="close-icon" />
+                            </button>
+                           <img src="/Principal/img/reg.png" alt="Registro" style="display: block; margin: 0 auto;" />
+                            <!-- Campos del formulario -->
+                            <form>
+                                <label for="name" class="label2" style="display: block; margin-bottom: 5px;">Nombre</label>
+                                <input type="text" id="name" class="input2"  />
+
+                                <label for="surname" class="label2" style="display: block; margin-bottom: 2px;">Apellidos</label>
+                                <input type="text" id="surname" class="input2"  />
+
+                                <label for="years" class="label2" style="display: block; margin-bottom: 5px;">Edad</label>
+                                <input type="text" id="username" class="input2"  />
+
+                                <label for="email-register" class="label2" style="display: block; margin-bottom: 5px;">Correo electrónico</label>
+                                <input type="email" id="email-register" class="input2"  />
+
+                                <label for="password-register" class="label2" style="display: block; margin-bottom: 5px;">Contraseña</label>
+                                <input type="password" id="password-register" class="input2"  />
+
+                                <div class="button-container" style="text-align: center;">
+                                    <button type="submit" class="btn btn-register">Registrarse</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </nav>
 
-        <!-- Contenido de la página -->
         <div class="container body-content">
-            <!-- Circulo de fondo -->
-            <div class="circle-background" style="left: 50%; top: 200px;"></div>
-
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                <!-- Aquí irá el contenido específico de cada página -->
-            </asp:ContentPlaceHolder>
-
-            <footer>
-                <a href="~/Privacy" style="margin-right: 20px;">Aviso de Privacidad</a>
-                <a href="~/Terms">Términos y Condiciones</a>
-                <p>&copy; <%: DateTime.Now.Year %> - QuizzVita</p>
-            </footer>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>
+
+        <footer>
+            <p>&copy; 2024 QuizzVita. Todos los derechos reservados.</p>
+        </footer>
     </form>
 
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
-    </asp:PlaceHolder>
+    <!-- Scripts personalizados -->
+    <script>
+        // Mostrar modal
+        document.getElementById('openModal').onclick = function () {
+            document.getElementById('loginModal').style.display = 'block';
+        };
+
+        document.getElementById('openRegisterModal').onclick = function () {
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('registerModal').style.display = 'block';
+        };
+
+        document.getElementById('closeRegisterModal').onclick = function () {
+            document.getElementById('registerModal').style.display = 'none';
+            document.getElementById('loginModal').style.display = 'block';
+        };
+
+        // Cerrar modales al hacer clic fuera del modal
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('registerModal').style.display = 'none';
+            }
+        };
+
+        // Cerrar modal de inicio de sesión
+        document.querySelector('.btn-close').onclick = function () {
+            document.getElementById('loginModal').style.display = 'none';
+        };
+    </script>
 </body>
 </html>
