@@ -227,6 +227,9 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="imagenes\hogar.png" />
+    <Content Include="imagenes\menu.png" />
+    <Content Include="imagenes\quizz1.png" />
     <Content Include="Principal\Home.aspx" />
     <Content Include="Principal\img\close-icon.png" />
     <Content Include="Principal\img\Letter.png" />
@@ -237,6 +240,10 @@
     <Content Include="Principal\img\Quizz.png" />
     <Content Include="Principal\img\reg.png" />
     <Content Include="QuizzAnsiedad\QAnsiedad.aspx" />
+    <Content Include="QuizzDepresion\Imagenes\casainicio.png" />
+    <Content Include="QuizzDepresion\Imagenes\opcionesin.png" />
+    <Content Include="QuizzDepresion\Imagenes\perdil.png" />
+    <Content Include="QuizzDepresion\WebForm1.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -266,6 +273,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Account\Web.config" />
+    <Content Include="Estres.aspx" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
@@ -455,6 +463,13 @@
     <Compile Include="QuizzAnsiedad\QAnsiedad.aspx.designer.cs">
       <DependentUpon>QAnsiedad.aspx</DependentUpon>
     </Compile>
+    <Compile Include="QuizzDepresion\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuizzDepresion\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -477,10 +492,18 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Estres.aspx.cs">
+      <DependentUpon>Estres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estres.aspx.designer.cs">
+      <DependentUpon>Estres.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
