@@ -36,6 +36,8 @@
             color: black;
         }
 
+
+
         .container.body-content {
             padding: 20px;
             margin-top: 50px;
@@ -208,6 +210,7 @@
             width: 46px;
             height: 46px;
         }
+
     </style>
 </head>
 <body>
@@ -239,7 +242,32 @@
                         style="cursor: pointer; border: none; margin-bottom: 3%; margin-top: 3%;" />
                 </div>
 
-                <!-- Modal de Inicio de Sesión -->
+                <!--Opciones de quizzes emergentes-->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="color:#A4ECD2; background-color:#252C2A; padding-left:3%; padding-right:3%;">
+                    <div class="offcanvas-header" style="margin-left: 76%; margin-top: 3%">
+                        <img src="/Principal/img/icon_close_menu.png"
+                            alt="Cerrar"
+                            data-bs-dismiss="offcanvas"
+                            aria-label="Close"
+                            style="cursor: pointer;" />
+                    </div>
+                    <div style="margin-top:10%; padding-top:9%; padding-bottom:9%; text-align:center; border-bottom: 2px solid #A4ECD2; border-top: 2px solid #A4ECD2;">
+                        <h1 class="offcanvas-title" >Quizzes</h1>
+                    </div>
+                    <div class="offcanvas-body" style="margin-bottom:0%">
+                        <ul class="navbar-nav justify-content-end flex-grow-1">
+                            <li class="nav-item" style="text-align:center;">
+                                <a class="nav-link active" href="/QuizzDepresion/WebForm1.aspx" style="color:#A4ECD2; margin-top:8%; padding-top:8%; padding-bottom:7%"><h5>Depresion</h5></a>
+                            </li>
+                            <li class="nav-item" style="text-align:center;">
+                                <a class="nav-link active" href="/QuizzAnsiedad/QAnsiedad.aspx" style="color:#A4ECD2; margin-top:8%; padding-top:8%; padding-bottom:7%"><h5>Ansiedad</h5></a>
+                            </li>
+                            <li class="nav-item" style="text-align:center;">
+                                <a class="nav-link active" href="/QuizzEstres/Estres.aspx" style="color:#A4ECD2; margin-top:8%; padding-top:8%; padding-bottom:7%"><h5>Estres</h5></a>
+                            </li>
+                        </ul>
+
+                <!-- Ventana emergente de inicio de sesión -->
                 <div id="loginModal" class="modal">
                     <div class="modal-content-wrapper">
                         <div class="Rectangle37">
@@ -364,7 +392,5 @@
         };
     });
     </script>
-
-
 </body>
 </html>
