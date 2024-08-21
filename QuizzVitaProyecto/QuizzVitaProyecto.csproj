@@ -231,6 +231,8 @@
     <Content Include="imagenes\menu.png" />
     <Content Include="imagenes\quizz1.png" />
     <Content Include="Principal\Home.aspx" />
+    <Content Include="Principal\img\close-icon.png" />
+    <Content Include="Principal\img\Letter.png" />
     <Content Include="Principal\img\login.png" />
     <Content Include="Principal\img\logo.png" />
     <Content Include="Principal\img\inicio.png" />
