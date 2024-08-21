@@ -239,6 +239,10 @@
     <Content Include="Principal\img\menu.png" />
     <Content Include="Principal\img\Quizz.png" />
     <Content Include="QuizzAnsiedad\QAnsiedad.aspx" />
+    <Content Include="QuizzDepresion\Imagenes\casainicio.png" />
+    <Content Include="QuizzDepresion\Imagenes\opcionesin.png" />
+    <Content Include="QuizzDepresion\Imagenes\perdil.png" />
+    <Content Include="QuizzDepresion\WebForm1.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -458,6 +462,13 @@
     <Compile Include="QuizzAnsiedad\QAnsiedad.aspx.designer.cs">
       <DependentUpon>QAnsiedad.aspx</DependentUpon>
     </Compile>
+    <Compile Include="QuizzDepresion\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuizzDepresion\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -491,6 +502,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
