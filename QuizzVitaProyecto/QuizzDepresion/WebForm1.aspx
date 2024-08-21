@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="QuizzVitaProyecto.QuizzDepresion.WebForm1" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -23,7 +22,6 @@
         .navbar img {
             width: 30px;
             height: 30px;
-          
         }
         .container {
             width: 60%;
@@ -66,23 +64,31 @@
     <form id="form1" runat="server">
         <!-- Barra de Navegación -->
         <div class="navbar">
-    <asp:ImageButton ID="HomeButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/casainicio.png" PostBackUrl="~/Home.aspx" CssClass="navbar-img" />
-    <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/perdil.png" PostBackUrl="~/Profile.aspx" CssClass="navbar-img" />
-    <asp:ImageButton ID="MenuButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/opcionesin.png" PostBackUrl="~/Menu.aspx" CssClass="navbar-img" />
-</div>
-
+            <asp:ImageButton ID="HomeButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/casainicio.png" PostBackUrl="~/Home.aspx" Style="width: 30px; height: 30px;" />
+            <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/perdil.png" PostBackUrl="~/Profile.aspx" Style="width: 30px; height: 30px;" />
+            <asp:ImageButton ID="MenuButton" runat="server" ImageUrl="/QuizzDepresion/imagenes/opcionesin.png" PostBackUrl="~/Menu.aspx" Style="width: 30px; height: 30px;" />
+        </div>
 
         <!-- Contenido Principal -->
         <div class="container">
             <h1>Quizz de Ansiedad</h1>
-            <p>Lea cada oración y después decida qué respuesta representa mejor su situación. No hay respuestas correctas o incorrectas. Este Quizz está diseñado como un predíagnóstico para corroborar sus resultados consulte con un especialista.</p>
-            <asp:Label ID="QuestionLabel" runat="server" Text="1. En las últimas dos semanas, ¿con qué frecuencia te has sentido nervioso, ansioso o al borde de un ataque de nervios?" CssClass="form-group"></asp:Label>
-            <div class="form-group">
-                <asp:RadioButton ID="Option1" runat="server" GroupName="AnxietyQuestion" Text="Nunca" />
-                <asp:RadioButton ID="Option2" runat="server" GroupName="AnxietyQuestion" Text="Varios días" />
-                <asp:RadioButton ID="Option3" runat="server" GroupName="AnxietyQuestion" Text="Más de la mitad de los días" />
-                <asp:RadioButton ID="Option4" runat="server" GroupName="AnxietyQuestion" Text="Casi todos los días" />
-            </div>
+            <p>Lea cada oración y después decida qué respuesta representa mejor su situación. No hay respuestas correctas o incorrectas. Este Quizz está diseñado como un predíagnóstico para corroborar sus resultados, consulte con un especialista.</p>
+
+            <!-- Preguntas -->
+            <asp:Repeater ID="QuestionsRepeater" runat="server">
+                <ItemTemplate>
+                    <div class="form-group">
+                        <asp:Label ID="QuestionLabel" runat="server" Text='<%# Eval("QuestionText") %>' CssClass="form-group"></asp:Label>
+                        <div>
+                            <asp:RadioButton ID="Option1" runat="server" GroupName='<%# Container.ItemIndex %>' Text='<%# Eval("Options[0]") %>' />
+                            <asp:RadioButton ID="Option2" runat="server" GroupName='<%# Container.ItemIndex %>' Text='<%# Eval("Options[1]") %>' />
+                            <asp:RadioButton ID="Option3" runat="server" GroupName='<%# Container.ItemIndex %>' Text='<%# Eval("Options[2]") %>' />
+                            <asp:RadioButton ID="Option4" runat="server" GroupName='<%# Container.ItemIndex %>' Text='<%# Eval("Options[3]") %>' />
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+
             <asp:Button ID="SubmitButton" runat="server" Text="Enviar respuestas" OnClick="SubmitButton_Click" CssClass="btn" />
         </div>
     </form>
