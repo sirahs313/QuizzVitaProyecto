@@ -5,6 +5,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Registro</title>
+
 </head>
 <body>
     <div id="registerModal" class="modal">
