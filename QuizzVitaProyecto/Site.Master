@@ -20,9 +20,8 @@
             font-family: 'Sarlotte', sans-serif;
             background-color: #FFF;
             color: #021425;
-
         }
-   
+
         .navbar {
             background-color: rgba(164, 235, 210, 0.90);
         }
@@ -44,27 +43,140 @@
             text-align: center;
             font-size: 18px;
         }
-        /*.circle-background {
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); /* Fondo oscuro */
+        }
+
+        .modal-content-wrapper {
             position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background-color: rgba(164, 236, 210, 0.72);
-            z-index: -1;
-        }*/
+            width: 622px;
+            height: 767px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Rectangle37 {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #57CEB3 0%, #1B4A5C 100%);
+            border-radius: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .Rectangle23 {
+            width: 88%;
+            height: 90%;
+            background: rgba(217, 217, 217, 0.60);
+            border-radius: 20px;
+            position: absolute;
+            top: 5%;
+            left: 6%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            width: 100%;
+            max-width: 500px;
+            background: #D9D9D9;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .DesktopLogin {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-top: 10px;
+        }
+
+        .title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .label {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .btn {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Quicksand', sans-serif;
+            cursor: pointer;
+        }
+
+        .btn-login {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .btn-register {
+            background-color: #ccc;
+            color: #333;
+        }
     </style>
 </head>
 <body>
     <form runat="server">
-       <asp:ScriptManager runat="server">
-    <Scripts>
-   
-        <asp:ScriptReference Name="MsAjaxBundle" />
-        <asp:ScriptReference Name="jquery" />
-        <asp:ScriptReference Name="WebFormsBundle" />
-      
-    </Scripts>
-</asp:ScriptManager>
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+            </Scripts>
+        </asp:ScriptManager>
 
         <nav class="navbar bg-body-tertiary fixed-top">
             <div class="container-fluid" style="padding-left: 4%; padding-right: 4%">
@@ -75,7 +187,7 @@
 
                 <!-- Contenedor para las imágenes a la derecha -->
                 <div class="d-flex">
-                    <a class="navbar-brand" href="#" style="margin-right:15%">
+                    <a class="navbar-brand" href="#" style="margin-right:15%" id="openModal">
                         <asp:Image ID="Image2" runat="server" ImageUrl="/Principal/img/login.png" />
                     </a>
                     <img src="/Principal/img/menu.png"
@@ -87,6 +199,34 @@
                         aria-label="Toggle navigation"
                         style="cursor: pointer; border: none; margin-bottom:3%; margin-top:3%;" />
                 </div>
+
+                <!-- Ventana emergente -->
+                <div id="loginModal" class="modal">
+                    <div class="modal-content-wrapper">
+                        <div class="Rectangle37"></div>
+                        <div class="Rectangle23">
+                            <div class="DesktopLogin">
+                                <div class="login-header">
+                                    <img src="https://via.placeholder.com/94x94" alt="Logo" class="logo" />
+                                    <h1 class="title">QuizzVita</h1>
+                                </div>
+                                <form class="login-form">
+                                    <label for="email" class="label">Correo electrónico</label>
+                                    <input type="email" id="email" class="input" />
+
+                                    <label for="password" class="label">Contraseña</label>
+                                    <input type="password" id="password" class="input" />
+
+                                    <div class="button-container">
+                                        <button type="submit" class="btn btn-login">Iniciar sesión</button>
+                                        <button type="button" class="btn btn-register">Registrarse</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
@@ -138,5 +278,28 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
+
+    <!-- Código JavaScript para el modal -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener el modal
+            var modal = document.getElementById("loginModal");
+
+            // Obtener el botón que abre el modal
+            var btn = document.getElementById("openModal");
+
+            // Cuando el usuario hace clic en el botón, abrir el modal
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // Cerrar el modal cuando el usuario hace clic fuera del contenido
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
 </body>
 </html>
