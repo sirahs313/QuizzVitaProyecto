@@ -68,7 +68,39 @@
         button:hover {
             background-color: #6a0dad;
         }
+.side-menu {
+    height: 100%; /* Altura del menú */
+    width: 0; /* Ancho inicial del menú, oculto */
+    position: fixed; /* Fijo en la pantalla */
+    z-index: 1; /* Colocar sobre otros elementos */
+    top: 0;
+    right: 0; /* Desplegar desde la derecha */
+    background-color: #111; /* Color de fondo */
+    overflow-x: hidden; /* Ocultar desbordamiento horizontal */
+    transition: 0.5s; /* Transición suave */
+    padding-top: 60px; /* Espacio superior */
+}
 
+.side-menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    color: #f1f1f1;
+}
+
+.side-menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
     </style>
 </head>
 <body>
@@ -76,13 +108,21 @@
         <!-- Barra Superior -->
       <div class="top-bar">
           <img src="/imagenes/hogar.png" alt="Home" />
-          <img src="/imagenes/menu.png" alt="Menu" />
+          <img src="/imagenes/menu.png" alt="Menu" id="menuButton" />
+
+<!-- Menú lateral -->
+<div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
+    <a href="/QuizzDepresion/WebForm1.aspx">Depresión</a>
+    <a href="/QuizzAnsiedad/QAnsiedad.aspx">Ansiedad</a>
+    <a href="/QuizzEstres/Estres.aspx">Estrés</a>
+</div>
       </div>
 
       <!-- Contenido Principal -->
       <div class="container">
           <img src="/imagenes/quizz1.png" alt="Logo" class="logo" />
-            <h1>Quizz de Estrés</h1>
+            <h1 style="margin-top:3%; padding-bottom:1%; border-bottom: 2px solid #A4ECD2;">Quizz de Estrés</h1>
             <p>Lea cada oración y después decida qué respuesta representa mejor su situación. No hay respuestas correctas o incorrectas. Este Quizz está diseñado como un prediagnóstico para corroborar sus resultados consulte con un especialista.</p>
 
            <div class="question">
@@ -288,5 +328,16 @@
             <button type="submit" runat="server" onserverclick="SubmitQuiz">Enviar respuestas</button>
         </div>
     </form>
+    <script>
+
+document.getElementById("menuButton").onclick = function() {
+    document.getElementById("sideMenu").style.width = "250px"; 
+}
+
+
+document.getElementById("closeMenu").onclick = function() {
+    document.getElementById("sideMenu").style.width = "0"; 
+}
+</script>
 </body>
 </html>
