@@ -121,8 +121,7 @@
 
         </div>
        <div class="top-bar">
-    <img src="/imagenes/hogar.png" alt="Home" />
-    <img src="/imagenes/menu.png" alt="Menu" id="menuButton" />
+    
 
     <!-- Menú lateral -->
     <div id="sideMenu" class="side-menu">
