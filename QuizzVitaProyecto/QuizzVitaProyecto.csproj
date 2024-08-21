@@ -242,6 +242,10 @@
     <Content Include="QuizzDepresion\Imagenes\perdil.png" />
     <Content Include="QuizzDepresion\WebForm1.aspx" />
     <Content Include="Registro.aspx" />
+    <Content Include="Registro.aspx" />
+    <Content Include="Registro.aspx" />
+    <Content Include="Registro.aspx" />
+    <Content Include="Registro.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -468,6 +472,13 @@
     </Compile>
     <Compile Include="QuizzDepresion\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterControl.aspx.cs">
+      <DependentUpon>RegisterControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterControl.aspx.designer.cs">
+      <DependentUpon>RegisterControl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>

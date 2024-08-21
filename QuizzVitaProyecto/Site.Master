@@ -317,50 +317,53 @@
     </form>
 
     <script>
-        function submitRegisterForm() {
-            console.log('submitRegisterForm called');
-            var form = document.getElementById('registerForm');
-            var formData = new FormData(form);
-            fetch('/Registro', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.text())
-                .then(data => {
-                    console.log('Server response:', data);
-                    alert('Registro exitoso');
-                    document.getElementById('registerModal').style.display = 'none';
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error en el registro');
-                });
-        }
+    function submitRegisterForm() {
+        console.log('submitRegisterForm called');
+        var form = document.getElementById('registerForm');
+        var formData = new FormData(form);
+        fetch('/Registro', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log('Server response:', data);
+            alert('Registro exitoso');
+            document.getElementById('registerModal').style.display = 'none';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error en el registro');
+        });
+    }
 
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('openModal').onclick = function () {
-                document.getElementById('loginModal').style.display = 'block';
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('openModal').onclick = function () {
+            document.getElementById('loginModal').style.display = 'block';
+            document.getElementById('registerModal').style.display = 'none';
+        };
+
+        document.getElementById('openRegisterModal').onclick = function () {
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('registerModal').style.display = 'block';
+        };
+
+        document.querySelectorAll('.btn-close').forEach(button => {
+            button.onclick = function () {
+                document.getElementById('loginModal').style.display = 'none';
                 document.getElementById('registerModal').style.display = 'none';
             };
-
-            document.getElementById('openRegisterModal').onclick = function () {
-                document.getElementById('loginModal').style.display = 'none';
-                document.getElementById('registerModal').style.display = 'block';
-            };
-
-            document.querySelectorAll('.btn-close').forEach(button => {
-                button.onclick = function () {
-                    document.getElementById('loginModal').style.display = 'none';
-                    document.getElementById('registerModal').style.display = 'none';
-                };
-            });
-
-            window.onclick = function (event) {
-                if (event.target.classList.contains('modal')) {
-                    event.target.style.display = 'none';
-                    document.getElementById('loginModal').style.display = 'none';
-                    document.getElementById('registerModal').style.display = 'none';
-                }
-            };
         });
+
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('registerModal').style.display = 'none';
+            }
+        };
+    });
     </script>
+
+    </body>
+    </html>
