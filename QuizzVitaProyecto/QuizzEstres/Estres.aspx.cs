@@ -43,7 +43,7 @@ namespace QuizzVitaProyecto
             }
 
             // Redirigir a la página de resultados con el diagnóstico
-            Response.Redirect($"Resultados.aspx?diagnosis={diagnosis}&score={totalScore}");
+            Response.Redirect($"Res.aspx?diagnosis={diagnosis}&score={totalScore}");
         }
     }
 }
