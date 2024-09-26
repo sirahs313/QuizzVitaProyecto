@@ -339,110 +339,118 @@
         </footer>
     </form>
 
-    <script>
-      function validateForm() {
-    var name = document.getElementById('name').value;
-    var surname = document.getElementById('surname').value;
-    var years = document.getElementById('years').value;
-    var phone = document.getElementById('phone').value;
-    var email = document.getElementById('email-register').value;
-    var password = document.getElementById('password-register').value;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script>
+    function validateForm() {
+        var name = document.getElementById('name').value;
+        var surname = document.getElementById('surname').value;
+        var years = document.getElementById('years').value;
+        var phone = document.getElementById('phone').value;
+        var email = document.getElementById('email-register').value;
+        var password = document.getElementById('password-register').value;
 
-    // Validar que el nombre y los apellidos solo contengan letras y espacios
-    var namePattern = /^[A-Za-z\s]+$/;
-    if (!namePattern.test(name)) {
-        alert('Nombre no válido. Solo se permiten letras y espacios.');
-        return false;
+        // Validar que el nombre y los apellidos solo contengan letras y espacios
+        var namePattern = /^[A-Za-z\s]+$/;
+        if (!namePattern.test(name)) {
+            alert('Nombre no válido. Solo se permiten letras y espacios.');
+            return false;
+        }
+        if (!namePattern.test(surname)) {
+            alert('Apellidos no válidos. Solo se permiten letras y espacios.');
+            return false;
+        }
+
+        // Validar la edad
+        if (isNaN(years) || years < 1 || years > 120) {
+            alert('Edad no válida. Debe ser un número entre 1 y 120.');
+            return false;
+        }
+
+        // Validar el número de teléfono
+        var phonePattern = /^\d{10}$/;
+        if (!phonePattern.test(phone)) {
+            alert('Número de teléfono no válido. Debe tener exactamente 10 dígitos.');
+            return false;
+        }
+
+        // Validar el formato del correo electrónico
+        var emailPattern = /^[^\s@]+@micorreo\.upp\.edu\.mx$/;
+        if (!emailPattern.test(email)) {
+            alert('El correo electrónico debe ser del tipo @micorreo.upp.edu.mx.');
+            return false;
+        }
+
+        // Validar la contraseña
+        if (password.length < 6) {
+            alert('Contraseña no válida. Debe tener al menos 6 caracteres.');
+            return false;
+        }
+
+        // Si todas las validaciones pasan
+        submitRegisterForm(password);
+        return false; // Evita el envío del formulario por defecto
     }
-    if (!namePattern.test(surname)) {
-        alert('Apellidos no válidos. Solo se permiten letras y espacios.');
-        return false;
-    }
 
-    // Validar la edad
-    if (isNaN(years) || years < 1 || years > 120) {
-        alert('Edad no válida. Debe ser un número entre 1 y 120.');
-        return false;
-    }
+    function submitRegisterForm(password) {
+        console.log('submitRegisterForm called');
+        var form = document.getElementById('registerForm');
+        var formData = new FormData(form);
 
-    // Validar el número de teléfono
-    var phonePattern = /^\d{10}$/;
-    if (!phonePattern.test(phone)) {
-        alert('Número de teléfono no válido. Debe tener exactamente 10 dígitos.');
-        return false;
-    }
+        // Encriptar la contraseña
+        var hashedPassword = CryptoJS.SHA256(password).toString();
 
-    // Validar el formato del correo electrónico
-   var emailPattern = /^[^\s@]+@micorreo\.upp\.edu\.mx$/;
-if (!emailPattern.test(email)) {
-    alert('El correo electrónico debe ser del tipo @micorreo.upp.edu.mx.');
-    return false;
-}
+        // Reemplazar la contraseña en formData
+        formData.set('password-register', hashedPassword); // Asegúrate de que 'password-register' sea el nombre del campo
 
-    // Validar la contraseña
-    if (password.length < 6) {
-        alert('Contraseña no válida. Debe tener al menos 6 caracteres.');
-        return false;
-    }
-
-    // Si todas las validaciones pasan
-    submitRegisterForm();
-    return false; // Evita el envío del formulario por defecto
-}
-
-function submitRegisterForm() {
-    console.log('submitRegisterForm called');
-    var form = document.getElementById('registerForm');
-    var formData = new FormData(form);
-    fetch('/Registro', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => response.text())
-        .then(data => {
-            console.log('Server response:', data);
-            alert('Registro exitoso');
-            document.getElementById('registerModal').style.display = 'none';
+        fetch('/Registro', {
+            method: 'POST',
+            body: formData
         })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Error en el registro');
-        });
-}
+            .then(response => response.text())
+            .then(data => {
+                console.log('Server response:', data);
+                alert('Registro exitoso');
+                document.getElementById('registerModal').style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error en el registro');
+            });
+    }
 
-function closeModal() {
-    document.getElementById('loginModal').style.display = 'none';
-    document.getElementById('registerModal').style.display = 'none';
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('openModal').onclick = function () {
-        document.getElementById('loginModal').style.display = 'block';
-        document.getElementById('registerModal').style.display = 'none';
-    };
-
-    document.getElementById('openRegisterModal').onclick = function () {
+    function closeModal() {
         document.getElementById('loginModal').style.display = 'none';
-        document.getElementById('registerModal').style.display = 'block';
-    };
+        document.getElementById('registerModal').style.display = 'none';
+    }
 
-    document.querySelectorAll('.btn-close').forEach(button => {
-        button.onclick = function () {
-            document.getElementById('loginModal').style.display = 'none';
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('openModal').onclick = function () {
+            document.getElementById('loginModal').style.display = 'block';
             document.getElementById('registerModal').style.display = 'none';
         };
-    });
 
-    window.onclick = function (event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = 'none';
+        document.getElementById('openRegisterModal').onclick = function () {
             document.getElementById('loginModal').style.display = 'none';
-            document.getElementById('registerModal').style.display = 'none';
-        }
-    };
-});
+            document.getElementById('registerModal').style.display = 'block';
+        };
 
-    </script>
+        document.querySelectorAll('.btn-close').forEach(button => {
+            button.onclick = function () {
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('registerModal').style.display = 'none';
+            };
+        });
+
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('registerModal').style.display = 'none';
+            }
+        };
+    });
+</script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
