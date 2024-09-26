@@ -114,7 +114,7 @@
         <!-- Barra de Navegación -->
         <div class="navbar">
             <asp:ImageButton ID="HomeButton" runat="server" ImageUrl="/Principal/img/inicio.png" PostBackUrl="~/Principal/Home.aspx" Style="width: 30px; height: 50px;" />
-            <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="/Principal/img/login.png" PostBackUrl="~/Profile.aspx" Style="width: 30px; height: 50px; float: left; margin-right: -850px;" />
+            <%--<asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="/Principal/img/login.png" PostBackUrl="~/Profile.aspx" Style="width: 30px; height: 50px; float: left; margin-right: -850px;" />--%>
             <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="/Principal/img/menu.png"
     PostBackUrl="~/Menu.aspx" Style="width: 30px; height: 50px;" 
     OnClientClick="openMenu(); return false;" />

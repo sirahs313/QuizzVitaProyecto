@@ -107,8 +107,8 @@
     <form id="form1" runat="server">
         <!-- Barra Superior -->
       <div class="top-bar">
-          <img src="/imagenes/hogar.png" alt="Home" />
-          <img src="/imagenes/menu.png" alt="Menu" id="menuButton" />
+          <img src="/Principal/img/inicio.png" alt="Home" />
+          <img src="/Principal/img/menu.png" alt="Menu" id="menuButton" />
 
 <!-- Menú lateral -->
 <div id="sideMenu" class="side-menu">
@@ -121,7 +121,7 @@
 
       <!-- Contenido Principal -->
       <div class="container">
-          <img src="/imagenes/quizz1.png" alt="Logo" class="logo" />
+          <img src="/Principal/img/logo.png" alt="Logo" class="logo" />
             <h1 style="margin-top:3%; padding-bottom:1%; border-bottom: 2px solid #A4ECD2;">Quizz de Estrés</h1>
             <p>Lea cada oración y después decida qué respuesta representa mejor su situación. No hay respuestas correctas o incorrectas. Este Quizz está diseñado como un prediagnóstico para corroborar sus resultados consulte con un especialista.</p>
 
