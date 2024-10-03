@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace QuizzVitaProyecto.QuizzEstres
+namespace QuizzVitaProyecto
 {
-    public partial class Resultados : System.Web.UI.Page
+    public partial class Informacionapoyo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
