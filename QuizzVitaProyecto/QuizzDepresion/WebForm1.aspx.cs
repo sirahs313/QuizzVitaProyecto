@@ -16,61 +16,61 @@ namespace QuizzVitaProyecto.QuizzDepresion
                 {
                     new Question
                     {
-                        QuestionText = "Pregunta 1: ¿Con qué frecuencia te sientes triste o vacío?",
+                        QuestionText = "1: ¿Con qué frecuencia te sientes triste o vacío?",
                         Options = new string[] {"Nunca", "Rara vez", "A menudo", "Siempre"},
                         OptionScores = new int[] {0, 1, 2, 3}
                     },
                     new Question
                     {
-                        QuestionText = "Pregunta 2: ¿Con qué frecuencia has perdido interés en actividades que solías disfrutar?",
+                        QuestionText = "2: ¿Con qué frecuencia has perdido interés en actividades que solías disfrutar?",
                         Options = new string[] {"Nunca", "Rara vez", "A menudo", "Siempre"},
                         OptionScores = new int[] {0, 1, 2, 3}
                     },
                     new Question
                     {
-                        QuestionText = "Pregunta 3: ¿Te sientes cansado o con poca energía la mayor parte del tiempo?",
+                        QuestionText = "3: ¿Te sientes cansado o con poca energía la mayor parte del tiempo?",
                         Options = new string[] {"Nunca", "Rara vez", "A menudo", "Siempre"},
                         OptionScores = new int[] {0, 1, 2, 3}
                     },
                     new Question
                     {
-                        QuestionText = "Pregunta 4: ¿Tienes problemas para dormir o duermes demasiado?",
+                        QuestionText = "4: ¿Tienes problemas para dormir o duermes demasiado?",
                         Options = new string[] {"Nunca", "Rara vez", "A menudo", "Siempre"},
                         OptionScores = new int[] {0, 1, 2, 3}
                     },
                     new Question
                     {
-                        QuestionText = "Pregunta 5: ¿Con qué frecuencia te sientes mal contigo mismo o que has fallado?",
+                        QuestionText = "5: ¿Con qué frecuencia te sientes mal contigo mismo o que has fallado?",
                         Options = new string[] {"Nunca", "Rara vez", "A menudo", "Siempre"},
                         OptionScores = new int[] {0, 1, 2, 3}
                     },
                     new Question
                     {
-                        QuestionText = "Pregunta 6: ¿Tienes problemas para concentrarte en actividades diarias, como leer o ver televisión?",
+                        QuestionText = "6: ¿Tienes problemas para concentrarte en actividades diarias, como leer o ver televisión?",
                         Options = new string[] {"Nunca", "Rara vez", "A menudo", "Siempre"},
                         OptionScores = new int[] {0, 1, 2, 3}
                     },
                     new Question
                     {
-                        QuestionText = "Pregunta 7: ¿Con qué frecuencia te has sentido lento o inquieto, como si no pudieras estar quieto?",
+                        QuestionText = "7: ¿Con qué frecuencia te has sentido lento o inquieto, como si no pudieras estar quieto?",
                         Options = new string[] {"Nunca", "Rara vez", "A menudo", "Siempre"},
                         OptionScores = new int[] {0, 1, 2, 3}
                     },
                     new Question
                     {
-                        QuestionText = "Pregunta 8: ¿Te has sentido sin esperanza acerca del futuro?",
+                        QuestionText = "8: ¿Te has sentido sin esperanza acerca del futuro?",
                         Options = new string[] {"Nunca", "Rara vez", "A menudo", "Siempre"},
                         OptionScores = new int[] {0, 1, 2, 3}
                     },
                     new Question
                     {
-                        QuestionText = "Pregunta 9: ¿Has tenido pensamientos de hacerte daño o que estarías mejor muerto?",
+                        QuestionText = "9: ¿Has tenido pensamientos de hacerte daño o que estarías mejor muerto?",
                         Options = new string[] {"Nunca", "Rara vez", "A menudo", "Siempre"},
                         OptionScores = new int[] {0, 1, 2, 3}
                     },
                     new Question
                     {
-                        QuestionText = "Pregunta 10: ¿Con qué frecuencia sientes que no tienes valor o utilidad?",
+                        QuestionText = "10: ¿Con qué frecuencia sientes que no tienes valor o utilidad?",
                         Options = new string[] {"Nunca", "Rara vez", "A menudo", "Siempre"},
                         OptionScores = new int[] {0, 1, 2, 3}
                     }
@@ -145,6 +145,11 @@ namespace QuizzVitaProyecto.QuizzDepresion
             };
 
             return optionScores[questionIndex][optionIndex];
+        }
+
+        protected void QuestionsRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
         }
     }
 
