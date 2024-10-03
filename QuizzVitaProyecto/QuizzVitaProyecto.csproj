@@ -241,7 +241,7 @@
     <Content Include="QuizzDepresion\Imagenes\casainicio.png" />
     <Content Include="QuizzDepresion\Imagenes\opcionesin.png" />
     <Content Include="QuizzDepresion\Imagenes\perdil.png" />
-    <Content Include="QuizzDepresion\WebForm1.aspx" />
+    <Content Include="QuizzDepresion\Depresion.aspx" />
     <Content Include="QuizzEstres\Res.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -278,6 +278,8 @@
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
+    <Content Include="Principal\Fuentes\Coffee Spark.ttf" />
+    <Content Include="Principal\Fuentes\Sarlotte.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -471,12 +473,12 @@
     <Compile Include="QuizzAnsiedad\QAnsiedad.aspx.designer.cs">
       <DependentUpon>QAnsiedad.aspx</DependentUpon>
     </Compile>
-    <Compile Include="QuizzDepresion\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="QuizzDepresion\Depresion.aspx.cs">
+      <DependentUpon>Depresion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="QuizzDepresion\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="QuizzDepresion\Depresion.aspx.designer.cs">
+      <DependentUpon>Depresion.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuizzEstres\Res.aspx.cs">
       <DependentUpon>Res.aspx</DependentUpon>
