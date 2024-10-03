@@ -69,16 +69,16 @@
             background-color: #6a0dad;
         }
 .side-menu {
-    height: 100%; /* Altura del menú */
-    width: 0; /* Ancho inicial del menú, oculto */
-    position: fixed; /* Fijo en la pantalla */
-    z-index: 1; /* Colocar sobre otros elementos */
+    height: 100%; 
+    width: 0;
+    position: fixed;
+    z-index: 1; 
     top: 0;
-    right: 0; /* Desplegar desde la derecha */
-    background-color: #111; /* Color de fondo */
-    overflow-x: hidden; /* Ocultar desbordamiento horizontal */
-    transition: 0.5s; /* Transición suave */
-    padding-top: 60px; /* Espacio superior */
+    right: 0; 
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s; 
+    padding-top: 60px; 
 }
 
 .side-menu a {
@@ -116,6 +116,7 @@
     <a href="/QuizzDepresion/WebForm1.aspx">Depresión</a>
     <a href="/QuizzAnsiedad/QAnsiedad.aspx">Ansiedad</a>
     <a href="/QuizzEstres/Estres.aspx">Estrés</a>
+    <a href="/Informacionapoyo.aspx">Informacion de apoyo</a>
 </div>
       </div>
 

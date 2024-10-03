@@ -129,6 +129,7 @@
         <a href="/QuizzDepresion/WebForm1.aspx">Depresión</a>
         <a href="/QuizzAnsiedad/QAnsiedad.aspx">Ansiedad</a>
         <a href="/QuizzEstres/Estres.aspx">Estrés</a>
+        <a href="/Informacionapoyo.aspx">Informacion de apoyo</a>
     </div>
 </div>
 
