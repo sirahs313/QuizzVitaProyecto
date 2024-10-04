@@ -243,8 +243,13 @@
     <Content Include="QuizzDepresion\Imagenes\casainicio.png" />
     <Content Include="QuizzDepresion\Imagenes\opcionesin.png" />
     <Content Include="QuizzDepresion\Imagenes\perdil.png" />
+<<<<<<< HEAD
     <Content Include="QuizzDepresion\ResDep.aspx" />
     <Content Include="QuizzDepresion\WebForm1.aspx" />
+=======
+    <Content Include="QuizzDepresion\Depresion.aspx" />
+    <Content Include="QuizzEstres\QEstres.aspx" />
+>>>>>>> ca2abba68689c1517691f8aa8ec89c2e0cbc6160
     <Content Include="QuizzEstres\Res.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -281,6 +286,8 @@
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
+    <Content Include="Principal\Fuentes\Coffee Spark.ttf" />
+    <Content Include="Principal\Fuentes\Sarlotte.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -481,6 +488,7 @@
     <Compile Include="QuizzAnsiedad\QAnsiedad.aspx.designer.cs">
       <DependentUpon>QAnsiedad.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="QuizzAnsiedad\ResAns.aspx.cs">
       <DependentUpon>ResAns.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -497,10 +505,21 @@
     </Compile>
     <Compile Include="QuizzDepresion\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+=======
+    <Compile Include="QuizzDepresion\Depresion.aspx.cs">
+      <DependentUpon>Depresion.aspx</DependentUpon>
+>>>>>>> ca2abba68689c1517691f8aa8ec89c2e0cbc6160
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="QuizzDepresion\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="QuizzDepresion\Depresion.aspx.designer.cs">
+      <DependentUpon>Depresion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuizzEstres\QEstres.aspx.cs">
+      <DependentUpon>QEstres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuizzEstres\QEstres.aspx.designer.cs">
+      <DependentUpon>QEstres.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuizzEstres\Res.aspx.cs">
       <DependentUpon>Res.aspx</DependentUpon>
