@@ -514,13 +514,6 @@
     <Compile Include="QuizzDepresion\Depresion.aspx.designer.cs">
       <DependentUpon>Depresion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="QuizzEstres\QEstres.aspx.cs">
-      <DependentUpon>QEstres.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="QuizzEstres\QEstres.aspx.designer.cs">
-      <DependentUpon>QEstres.aspx</DependentUpon>
-    </Compile>
     <Compile Include="QuizzEstres\Res.aspx.cs">
       <DependentUpon>Res.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
