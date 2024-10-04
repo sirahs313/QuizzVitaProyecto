@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Res.aspx.cs" Inherits="QuizzVitaProyecto.QuizzEstres.Res" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResDep.aspx.cs" Inherits="QuizzVitaProyecto.QuizzDepresion.ResDep" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Resultados del Quizz de Estrés</title>
+    <title>Resultados del Quizz de Depresión</title>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -113,7 +113,7 @@
             font-weight: bold;
             transition: width 0.5s ease-in-out; 
         }
-.side-menu {
+        .side-menu {
     height: 100%; 
     width: 0;
     position: fixed;
@@ -146,10 +146,9 @@
     font-size: 36px;
     margin-left: 50px;
 }
-
-.blurred {
-    filter: blur(5px);
-}
+        .blurred {
+            filter: blur(5px);
+        }
     </style>
 </head>
 <body>
@@ -160,7 +159,7 @@
 
 <!-- Menú lateral -->
 <div id="sideMenu" class="side-menu">
-    <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
+    <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>}
     <h1>Quizzes</h1>
     <a href="/QuizzDepresion/WebForm1.aspx">Depresión</a>
     <a href="/QuizzAnsiedad/QAnsiedad.aspx">Ansiedad</a>
@@ -168,6 +167,7 @@
     <a href="/Informacionapoyo.aspx">Informacion de apoyo</a>
 </div>
       </div>
+
         <div class="container" id="contentContainer">
             <h1>¡Aquí están tus resultados!</h1>
             <div class="result-box">
@@ -184,7 +184,7 @@
                 <!-- Botones para más acciones -->
                 <div class="buttons">
                     <button type="button">Acerca de tus resultados</button>
-                    <button type="button">Consejos para manejar el estrés</button>
+                    <button type="button">Consejos para manejar tu depresión</button>
                     <button type="button">Tus respuestas</button>
                     <button type="button" id="openMenuButton">Realizar otro quizz</button>
                 </div>
@@ -193,24 +193,29 @@
             
         </div>
     </form>
+        <script>
 
-    <script>
-        function openMenu() {
-            document.getElementById("sideMenu").style.width = "250px";
-            document.getElementById("contentContainer").classList.add("blurred");
-        }
+ 
+ 
+            function openMenu() {
+                document.getElementById("sideMenu").style.width = "250px";
+                document.getElementById("contentContainer").classList.add("blurred");
+            }
 
+            
+            function closeMenu() {
+                document.getElementById("sideMenu").style.width = "0";
+                document.getElementById("contentContainer").classList.remove("blurred");
+            }
 
-        function closeMenu() {
-            document.getElementById("sideMenu").style.width = "0";
-            document.getElementById("contentContainer").classList.remove("blurred");
-        }
+            
+            document.getElementById("menuButton").onclick = openMenu;
+            document.getElementById("closeMenu").onclick = closeMenu;
+            document.getElementById("openMenuButton").onclick = openMenu;
 
-
-        document.getElementById("menuButton").onclick = openMenu;
-        document.getElementById("closeMenu").onclick = closeMenu;
-        document.getElementById("openMenuButton").onclick = openMenu;
-    </script>
+  
+        </script>
 </body>
 </html>
+
 

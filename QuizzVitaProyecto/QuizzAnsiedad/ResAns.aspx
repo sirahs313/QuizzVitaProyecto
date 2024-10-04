@@ -1,11 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Res.aspx.cs" Inherits="QuizzVitaProyecto.QuizzEstres.Res" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResAns.aspx.cs" Inherits="QuizzVitaProyecto.QuizzAnsiedad.Res" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Resultados del Quizz de Estrés</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Resultados del Quizz de Ansiedad</title>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -113,104 +112,104 @@
             font-weight: bold;
             transition: width 0.5s ease-in-out; 
         }
-.side-menu {
-    height: 100%; 
-    width: 0;
-    position: fixed;
-    z-index: 1; 
-    top: 0;
-    right: 0; 
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s; 
-    padding-top: 60px; 
-}
 
-.side-menu a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
+        .side-menu {
+            height: 100%; 
+            width: 0;
+            position: fixed;
+            z-index: 1; 
+            top: 0;
+            right: 0; 
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s; 
+            padding-top: 60px; 
+        }
 
-.side-menu a:hover {
-    color: #f1f1f1;
-}
+        .side-menu a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
 
-.side-menu .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
+        .side-menu a:hover {
+            color: #f1f1f1;
+        }
 
-.blurred {
-    filter: blur(5px);
-}
+        .side-menu .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .blurred {
+            filter: blur(5px);
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-      <div class="top-bar">
-          <img src="/Principal/img/inicio.png" alt="Home" />
-          <img src="/Principal/img/menu.png" alt="Menu" id="menuButton" />
+        <div class="top-bar">
+            <img src="/Principal/img/inicio.png" alt="Home" />
+            <img src="/Principal/img/menu.png" alt="Menu" id="menuButton" />
 
-<!-- Menú lateral -->
-<div id="sideMenu" class="side-menu">
-    <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
-    <h1>Quizzes</h1>
-    <a href="/QuizzDepresion/WebForm1.aspx">Depresión</a>
-    <a href="/QuizzAnsiedad/QAnsiedad.aspx">Ansiedad</a>
-    <a href="/QuizzEstres/Estres.aspx">Estrés</a>
-    <a href="/Informacionapoyo.aspx">Informacion de apoyo</a>
-</div>
-      </div>
+            <!-- Menú lateral -->
+            <div id="sideMenu" class="side-menu">
+                <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
+                <h1>Quizzes</h1>
+                <a href="/QuizzDepresion/WebForm1.aspx">Depresión</a>
+                <a href="/QuizzAnsiedad/QAnsiedad.aspx">Ansiedad</a>
+                <a href="/QuizzEstres/Estres.aspx">Estrés</a>
+                <a href="/Informacionapoyo.aspx">Informacion de apoyo</a>
+            </div>
+        </div>
+
         <div class="container" id="contentContainer">
             <h1>¡Aquí están tus resultados!</h1>
             <div class="result-box">
                 <p>Tu diagnóstico actual es:</p>
                 <h2 style="color: #4b0082;"><%= Request.QueryString["diagnosis"] %></h2>
-                
+
                 <!-- Barra de progreso -->
                 <div class="progress-bar">
                     <div class="progress" style="width:<%= (Convert.ToInt32(Request.QueryString["score"]) * 100 / 30) %>%;">
                         <%= Request.QueryString["score"] %>/30
                     </div>
                 </div>
-                
+
                 <!-- Botones para más acciones -->
                 <div class="buttons">
                     <button type="button">Acerca de tus resultados</button>
-                    <button type="button">Consejos para manejar el estrés</button>
+                    <button type="button">Consejos para manejar tu ansiedad</button>
                     <button type="button">Tus respuestas</button>
                     <button type="button" id="openMenuButton">Realizar otro quizz</button>
                 </div>
             </div>
-
-            
         </div>
     </form>
 
     <script>
+        
         function openMenu() {
             document.getElementById("sideMenu").style.width = "250px";
             document.getElementById("contentContainer").classList.add("blurred");
         }
 
-
+        
         function closeMenu() {
             document.getElementById("sideMenu").style.width = "0";
             document.getElementById("contentContainer").classList.remove("blurred");
         }
 
-
+        
         document.getElementById("menuButton").onclick = openMenu;
         document.getElementById("closeMenu").onclick = closeMenu;
         document.getElementById("openMenuButton").onclick = openMenu;
     </script>
 </body>
 </html>
-

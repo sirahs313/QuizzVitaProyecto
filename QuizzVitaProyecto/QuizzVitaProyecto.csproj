@@ -239,9 +239,11 @@
     <Content Include="Principal\img\Quizz.png" />
     <Content Include="Principal\img\reg.png" />
     <Content Include="QuizzAnsiedad\QAnsiedad.aspx" />
+    <Content Include="QuizzAnsiedad\ResAns.aspx" />
     <Content Include="QuizzDepresion\Imagenes\casainicio.png" />
     <Content Include="QuizzDepresion\Imagenes\opcionesin.png" />
     <Content Include="QuizzDepresion\Imagenes\perdil.png" />
+    <Content Include="QuizzDepresion\ResDep.aspx" />
     <Content Include="QuizzDepresion\WebForm1.aspx" />
     <Content Include="QuizzEstres\Res.aspx" />
     <Content Include="Registro.aspx" />
@@ -478,6 +480,20 @@
     </Compile>
     <Compile Include="QuizzAnsiedad\QAnsiedad.aspx.designer.cs">
       <DependentUpon>QAnsiedad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuizzAnsiedad\ResAns.aspx.cs">
+      <DependentUpon>ResAns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuizzAnsiedad\ResAns.aspx.designer.cs">
+      <DependentUpon>ResAns.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuizzDepresion\ResDep.aspx.cs">
+      <DependentUpon>ResDep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuizzDepresion\ResDep.aspx.designer.cs">
+      <DependentUpon>ResDep.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuizzDepresion\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

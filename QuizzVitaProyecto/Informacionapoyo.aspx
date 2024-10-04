@@ -131,6 +131,9 @@
     font-size: 36px;
     margin-left: 50px;
 }
+        .blurred {
+            filter: blur(5px);
+        }
     </style>
 </head>
 <body>
@@ -142,6 +145,7 @@
         </div>        
         <div id="sideMenu" class="side-menu">
     <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
+           <h1 style="color: rebeccapurple">Quizzes</h1>
     <a href="/QuizzDepresion/WebForm1.aspx">Depresión</a>
     <a href="/QuizzAnsiedad/QAnsiedad.aspx">Ansiedad</a>
     <a href="/QuizzEstres/Estres.aspx">Estrés</a>
@@ -150,7 +154,7 @@
 </div>
     </div>
 
-    <div class="main-content">
+    <div class="main-content" id="contentContainer">
         <h1>Información de apoyo</h1>
 
         <div class="resources">
@@ -177,12 +181,18 @@
         <a href="#">Términos y Condiciones</a>
     </div>
     <script>
-        document.getElementById("menuButton").onclick = function () {
+        function openMenu() {
             document.getElementById("sideMenu").style.width = "250px";
+            document.getElementById("contentContainer").classList.add("blurred");
         }
-        document.getElementById("closeMenu").onclick = function () {
+
+        function closeMenu() {
             document.getElementById("sideMenu").style.width = "0";
+            document.getElementById("contentContainer").classList.remove("blurred");
         }
+
+        document.getElementById("menuButton").onclick = openMenu;
+        document.getElementById("closeMenu").onclick = closeMenu;
     </script>
 </body>
 </html>
