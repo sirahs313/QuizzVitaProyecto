@@ -241,71 +241,108 @@
                         <asp:Image ID="Image2" runat="server" ImageUrl="/Principal/img/login.png" />
                     </a>
                     <img src="/Principal/img/menu.png"
-    class="navbar-toggler"
-    type="button"
-    data-bs-toggle="offcanvas"
-    data-bs-target="#offcanvasNavbar"
-    aria-controls="offcanvasNavbar"
-    aria-label="Toggle navigation"
-    style="cursor: pointer; border: none; margin-bottom: 3%; margin-top: 3%;" />
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar"
+                        aria-controls="offcanvasNavbar"
+                        aria-label="Toggle navigation"
+                        style="cursor: pointer; border: none; margin-bottom: 3%; margin-top: 3%;" />
 
-<!-- Offcanvas para el menú desplegable -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="color:#A4ECD2; background-color:#252C2A; padding-left:3%; padding-right:3%;">
-  <div class="offcanvas-header" style="margin-left: 80%; margin-top: 2%">
-      <img src="/Principal/img/icon_close_menu.png"
-          alt="Cerrar"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-          style="cursor: pointer; width: 40px; height: 40px;" />
-  </div>
-    <div style="margin-top: 10%; padding-top: 8%; padding-bottom: 8%; text-align: center; border-bottom: 1px solid #A4ECD2; border-top: 1px solid #A4ECD2; margin-left:8%; margin-right:8%;">
-        <h2 class="offcanvas-title" id="offcanvasNavbarLabel">Quizzes</h2>
-    </div>
+                    <!-- Offcanvas para el menú desplegable -->
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="color: #A4ECD2; background-color: #252C2A; padding-left: 3%; padding-right: 3%;">
+                        <div class="offcanvas-header" style="margin-left: 80%; margin-top: 2%">
+                            <img src="/Principal/img/icon_close_menu.png"
+                                alt="Cerrar"
+                                data-bs-dismiss="offcanvas"
+                                aria-label="Close"
+                                style="cursor: pointer; width: 40px; height: 40px;" />
+                        </div>
+                        <div style="margin-top: 10%; padding-top: 8%; padding-bottom: 8%; text-align: center; border-bottom: 1px solid #A4ECD2; border-top: 1px solid #A4ECD2; margin-left: 8%; margin-right: 8%;">
+                            <h2 class="offcanvas-title" id="offcanvasNavbarLabel">Quizzes</h2>
+                        </div>
 
-  <div class="offcanvas-body">
-    <ul class="navbar-nav justify-content-end flex-grow-1">
-      <li class="nav-item" style="text-align:center;" >
-        <a class="nav-link active" href="/QuizzDepresion/WebForm1.aspx" style="color:#A4ECD2; margin-top:5%; padding-top:7%; padding-bottom:7%; margin-left:4%; margin-right:4%;">Depresión</a>
-      </li>
-      <li class="nav-item" style="text-align:center;">
-        <a class="nav-link active" href="/QuizzAnsiedad/QAnsiedad.aspx" style="color:#A4ECD2; margin-top:5%; padding-top:7%; padding-bottom:7%; margin-left:4%; margin-right:4%;">Ansiedad</a>
-      </li>
-      <li class="nav-item" style="text-align: center;">
-        <a class="nav-link active" href="/QuizzEstres/Estres.aspx" style="color:#A4ECD2; margin-top:5%; padding-top:7%; padding-bottom:7%; margin-left:4%; margin-right:4%;">Estrés</a>
-      </li>
-      <li class="nav-item" style="text-align: center;">
-          <div style="margin-top: 10%; padding-top: 8%; padding-bottom: 8%; text-align: center; border-bottom: 1px solid #A4ECD2; border-top: 1px solid #A4ECD2; margin-left: 3%; margin-right: 3%;">
-              <a class="nav-link active" href="#" style="color:#A4ECD2; padding-top:7%; padding-bottom:7%; margin-left:4%; margin-right:4%;"><h5>Información de apoyo</h5></a>
-          </div>
-      </li>
-      <!-- Puedes añadir más enlaces aquí si lo necesitas -->
-    </ul>
-  </div>
-</div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1">
+                                <li class="nav-item" style="text-align: center;">
+                                    <a class="nav-link active" href="/QuizzDepresion/WebForm1.aspx" style="color: #A4ECD2; margin-top: 5%; padding-top: 7%; padding-bottom: 7%; margin-left: 4%; margin-right: 4%;">Depresión</a>
+                                </li>
+                                <li class="nav-item" style="text-align: center;">
+                                    <a class="nav-link active" href="/QuizzAnsiedad/QAnsiedad.aspx" style="color: #A4ECD2; margin-top: 5%; padding-top: 7%; padding-bottom: 7%; margin-left: 4%; margin-right: 4%;">Ansiedad</a>
+                                </li>
+                                <li class="nav-item" style="text-align: center;">
+                                    <a class="nav-link active" href="/QuizzEstres/Estres.aspx" style="color: #A4ECD2; margin-top: 5%; padding-top: 7%; padding-bottom: 7%; margin-left: 4%; margin-right: 4%;">Estrés</a>
+                                </li>
+                                <li class="nav-item" style="text-align: center;">
+                                    <div style="margin-top: 10%; padding-top: 8%; padding-bottom: 8%; text-align: center; border-bottom: 1px solid #A4ECD2; border-top: 1px solid #A4ECD2; margin-left: 3%; margin-right: 3%;">
+                                        <a class="nav-link active" href="#" style="color: #A4ECD2; padding-top: 7%; padding-bottom: 7%; margin-left: 4%; margin-right: 4%;">
+                                            <h5>Información de apoyo</h5>
+                                        </a>
+                                    </div>
+                                </li>
+                                <!-- Puedes añadir más enlaces aquí si lo necesitas -->
+                            </ul>
+                        </div>
+                    </div>
 
-                <!-- Modal de Inicio de Sesión -->
-                <div id="loginModal" class="modal">
-                    <div class="modal-content-wrapper">
-                        <div class="Rectangle37">
-                            <div class="Rectangle23">
-                                <%--<button class="btn-close" onclick="closeModal()">
+                    <!-- Modal de Inicio de Sesión -->
+                    <div id="loginModal" class="modal">
+                        <div class="modal-content-wrapper">
+                            <div class="Rectangle37">
+                                <div class="Rectangle23">
+                                    <%--<button class="btn-close" onclick="closeModal()">
                                     <img src="/Principal/img/close-icon.png" alt="Cerrar" class="close-icon" />
                                 </button>--%>
-                                <div class="DesktopLogin">
-                                    <div class="login-header">
-                                        <img src="/Principal/img/Letter.png" class="title-image" />
-                                        <img src="/Principal/img/logo.png" alt="Logo" class="logo" />
+                                    <div class="DesktopLogin">
+                                        <div class="login-header">
+                                            <img src="/Principal/img/Letter.png" class="title-image" />
+                                            <img src="/Principal/img/logo.png" alt="Logo" class="logo" />
+                                        </div>
+                                        <form id="loginForm">
+                                            <label for="email" class="label">Correo electrónico</label>
+                                            <input type="email" id="email" name="email" class="input" />
+
+                                            <label for="password" class="label">Contraseña</label>
+                                            <input type="password" id="password" name="password" class="input" />
+
+                                            <div class="button-container">
+                                                <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-login" Text="Iniciar sesión" OnClick="btnLogin_Click" />
+                                                <button type="button" class="btn btn-register" id="openRegisterModal">Registrarse</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <form id="loginForm">
-                                        <label for="email" class="label">Correo electrónico</label>
-                                        <input type="email" id="email" name="email" class="input" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                                        <label for="password" class="label">Contraseña</label>
-                                        <input type="password" id="password" name="password" class="input" />
+                    <!-- Modal de Registro -->
+                    <div id="registerModal" class="modal">
+                        <div class="modal-content-wrapper">
+                            <div class="Rectangle37" style="background: #FFFFFF; padding: 20px;">
+                                <div class="Rectangle23" style="background: #CBCBCB; padding: 20px;">
+                                    <img src="/Principal/img/reg.png" alt="Registro" style="display: block; margin: 0 auto;" />
+                                    <form id="registerForm" method="post" onsubmit="return validateForm()">
+                                        <label for="name" class="label2">Nombre</label>
+                                        <input type="text" id="name" name="name" class="input2" pattern="[A-Za-z\s]+" title="Solo letras y espacios son permitidos" required />
 
-                                        <div class="button-container">
-                                            <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-login" Text="Iniciar sesión" OnClick="btnLogin_Click" />
-                                            <button type="button" class="btn btn-register" id="openRegisterModal">Registrarse</button>
+                                        <label for="surname" class="label2">Apellidos</label>
+                                        <input type="text" id="surname" name="surname" class="input2" pattern="[A-Za-z\s]+" title="Solo letras y espacios son permitidos" required />
+
+                                        <label for="years" class="label2">Edad</label>
+                                        <input type="number" id="years" name="years" class="input2" min="1" max="120" title="Introduce una edad válida" required />
+
+                                        <label for="phone" class="label2">Número de teléfono</label>
+                                        <input type="tel" id="phone" name="phone" class="input2" pattern="\d{10}" title="Debe tener exactamente 10 dígitos" required />
+
+                                        <label for="email-register" class="label2">Correo electrónico</label>
+                                        <input type="email" id="email-register" name="email-register" class="input2" required />
+
+                                        <label for="password-register" class="label2">Contraseña</label>
+                                        <input type="password" id="password-register" name="password-register" class="input2" minlength="6" title="La contraseña debe tener al menos 6 caracteres" required />
+
+                                        <div class="button-container" style="text-align: center;">
+                                            <button type="submit" class="btn btn-register2">Registrarse</button>
                                         </div>
                                     </form>
                                 </div>
@@ -313,42 +350,6 @@
                         </div>
                     </div>
                 </div>
-
-<!-- Modal de Registro -->
-<div id="registerModal" class="modal">
-    <div class="modal-content-wrapper">
-        <div class="Rectangle37" style="background: #FFFFFF; padding: 20px;">
-            <div class="Rectangle23" style="background: #CBCBCB; padding: 20px;">
-                <img src="/Principal/img/reg.png" alt="Registro" style="display: block; margin: 0 auto;" />
-                <form id="registerForm" method="post" onsubmit="return validateForm()">
-                    <label for="name" class="label2">Nombre</label>
-                    <input type="text" id="name" name="name" class="input2" pattern="[A-Za-z\s]+" title="Solo letras y espacios son permitidos" required />
-
-                    <label for="surname" class="label2">Apellidos</label>
-                    <input type="text" id="surname" name="surname" class="input2" pattern="[A-Za-z\s]+" title="Solo letras y espacios son permitidos" required />
-
-                    <label for="years" class="label2">Edad</label>
-                    <input type="number" id="years" name="years" class="input2" min="1" max="120" title="Introduce una edad válida" required />
-
-                    <label for="phone" class="label2">Número de teléfono</label>
-                    <input type="tel" id="phone" name="phone" class="input2" pattern="\d{10}" title="Debe tener exactamente 10 dígitos" required />
-
-                    <label for="email-register" class="label2">Correo electrónico</label>
-                    <input type="email" id="email-register" name="email-register" class="input2" required />
-
-                    <label for="password-register" class="label2">Contraseña</label>
-                    <input type="password" id="password-register" name="password-register" class="input2" minlength="6" title="La contraseña debe tener al menos 6 caracteres" required />
-
-                    <div class="button-container" style="text-align: center;">
-                        <button type="submit" class="btn btn-register2">Registrarse</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
             </div>
         </nav>
 
