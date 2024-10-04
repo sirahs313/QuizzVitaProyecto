@@ -243,7 +243,6 @@
     <Content Include="QuizzDepresion\Imagenes\opcionesin.png" />
     <Content Include="QuizzDepresion\Imagenes\perdil.png" />
     <Content Include="QuizzDepresion\Depresion.aspx" />
-    <Content Include="QuizzEstres\QEstres.aspx" />
     <Content Include="QuizzEstres\Res.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -488,13 +487,6 @@
     </Compile>
     <Compile Include="QuizzDepresion\Depresion.aspx.designer.cs">
       <DependentUpon>Depresion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="QuizzEstres\QEstres.aspx.cs">
-      <DependentUpon>QEstres.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="QuizzEstres\QEstres.aspx.designer.cs">
-      <DependentUpon>QEstres.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuizzEstres\Res.aspx.cs">
       <DependentUpon>Res.aspx</DependentUpon>
