@@ -2,18 +2,28 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <style>
-        
+
         @media (max-width: 768px) {
             .EllipseContainer {
                 display: none;
             }
+        }
+
+        @font-face {
+            font-family: 'CoffeeSpark';
+            src: url('Fuentes/Coffee Spark.ttf'); 
+        }
+
+        @font-face {
+            font-family: 'Sarlotte';
+            src: url('Fuentes/Sarlotte.otf');
         }
     </style>
 
     <asp:Panel ID="Panel1" runat="server">
         <div class="DesktopPrincipal" style="width: 100%; min-height: 100vh; position: relative; background: white; padding-bottom: 60px;">
 
-            <div class="Quizzvita" style="width: 400px; height: 105px; left: 80px; top: 100px; position: absolute; text-align: left; color: black; font-size: 70px; font-family: Coffee Spark; font-weight: 800;">
+            <div class="Quizzvita" style="width: 400px; height: 105px; left: 80px; top: 100px; position: absolute; text-align: left; color: black; font-size: 70px; font-family: CoffeeSpark; font-weight: 800;">
                 QuizzVita
             </div>
 

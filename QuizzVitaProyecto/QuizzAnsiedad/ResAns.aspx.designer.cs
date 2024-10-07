@@ -11,7 +11,7 @@ namespace QuizzVitaProyecto.QuizzAnsiedad
 {
 
 
-    public partial class QAnsiedad
+    public partial class Res
     {
 
         /// <summary>

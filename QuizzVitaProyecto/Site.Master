@@ -292,8 +292,6 @@
     aria-controls="offcanvasNavbar"
     aria-label="Toggle navigation"
     style="cursor: pointer; border: none; margin-bottom: 3%; margin-top: 3%;" />
-                    </div>
-
 
 <!-- Offcanvas para el menú desplegable -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -317,12 +315,12 @@
   </div>
 </div>
 
-                <!-- Modal de Inicio de Sesión -->
-                <div id="loginModal" class="modal">
-                    <div class="modal-content-wrapper">
-                        <div class="Rectangle37">
-                            <div class="Rectangle23">
-                                <%--<button class="btn-close" onclick="closeModal()">
+                    <!-- Modal de Inicio de Sesión -->
+                    <div id="loginModal" class="modal">
+                        <div class="modal-content-wrapper">
+                            <div class="Rectangle37">
+                                <div class="Rectangle23">
+                                    <%--<button class="btn-close" onclick="closeModal()">
                                     <img src="/Principal/img/close-icon.png" alt="Cerrar" class="close-icon" />
                                 </button>--%>
                                 <div class="DesktopLogin">
@@ -332,13 +330,13 @@
                                     </div>
                                     <form id="loginForm">
                                         <label for="email" class="label">Correo electrónico</label>
-                                        <asp:TextBox ID="email" runat="server" CssClass="input" TextMode="Email" placeholder="Correo electrónico" />
+                                        <input type="email" id="email" name="email" class="input" />
 
                                         <label for="password" class="label">Contraseña</label>
-                                        <asp:TextBox ID="password" runat="server" CssClass="input" TextMode="Password" placeholder="Contraseña" />
+                                        <input type="password" id="password" name="password" class="input" />
 
                                         <div class="button-container">
-                                            <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-login" Text="Iniciar sesión"  />
+                                            <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-login" Text="Iniciar sesión" OnClick="btnLogin_Click" />
                                             <button type="button" class="btn btn-register" id="openRegisterModal">Registrarse</button>
                                         </div>
                                     </form>
@@ -348,30 +346,30 @@
                     </div>
                 </div>
 
-<!-- Modal de Registro -->
-<div id="registerModal" class="modal">
-    <div class="modal-content-wrapper">
-        <div class="Rectangle37" style="background: #FFFFFF; padding: 20px;">
-            <div class="Rectangle23" style="background: #CBCBCB; padding: 20px;">
-                <img src="/Principal/img/reg.png" alt="Registro" style="display: block; margin: 0 auto;" />
-                <form id="registerForm" method="post" onsubmit="return validateForm()">
-                    <label for="name" class="label2">Nombre</label>
-                    <input type="text" id="name" name="name" class="input2" pattern="[A-Za-z\s]+" title="Solo letras y espacios son permitidos" required />
+                    <!-- Modal de Registro -->
+                    <div id="registerModal" class="modal">
+                        <div class="modal-content-wrapper">
+                            <div class="Rectangle37" style="background: #FFFFFF; padding: 20px;">
+                                <div class="Rectangle23" style="background: #CBCBCB; padding: 20px;">
+                                    <img src="/Principal/img/reg.png" alt="Registro" style="display: block; margin: 0 auto;" />
+                                    <form id="registerForm" method="post" onsubmit="return validateForm()">
+                                        <label for="name" class="label2">Nombre</label>
+                                        <input type="text" id="name" name="name" class="input2" pattern="[A-Za-z\s]+" title="Solo letras y espacios son permitidos" required />
 
-                    <label for="surname" class="label2">Apellidos</label>
-                    <input type="text" id="surname" name="surname" class="input2" pattern="[A-Za-z\s]+" title="Solo letras y espacios son permitidos" required />
+                                        <label for="surname" class="label2">Apellidos</label>
+                                        <input type="text" id="surname" name="surname" class="input2" pattern="[A-Za-z\s]+" title="Solo letras y espacios son permitidos" required />
 
-                    <label for="years" class="label2">Edad</label>
-                    <input type="number" id="years" name="years" class="input2" min="1" max="120" title="Introduce una edad válida" required />
+                                        <label for="years" class="label2">Edad</label>
+                                        <input type="number" id="years" name="years" class="input2" min="1" max="120" title="Introduce una edad válida" required />
 
-                    <label for="phone" class="label2">Número de teléfono</label>
-                    <input type="tel" id="phone" name="phone" class="input2" pattern="\d{10}" title="Debe tener exactamente 10 dígitos" required />
+                                        <label for="phone" class="label2">Número de teléfono</label>
+                                        <input type="tel" id="phone" name="phone" class="input2" pattern="\d{10}" title="Debe tener exactamente 10 dígitos" required />
 
-                    <label for="email-register" class="label2">Correo electrónico</label>
-                    <input type="email" id="email-register" name="email-register" class="input2" required />
+                                        <label for="email-register" class="label2">Correo electrónico</label>
+                                        <input type="email" id="email-register" name="email-register" class="input2" required />
 
-                    <label for="password-register" class="label2">Contraseña</label>
-                    <input type="password" id="password-register" name="password-register" class="input2" minlength="6" title="La contraseña debe tener al menos 6 caracteres" required />
+                                        <label for="password-register" class="label2">Contraseña</label>
+                                        <input type="password" id="password-register" name="password-register" class="input2" minlength="6" title="La contraseña debe tener al menos 6 caracteres" required />
 
                     <div class="button-container" style="text-align: center;">
                         <button type="submit" class="btn btn-register2">Registrarse</button>
@@ -381,9 +379,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 
             </div>

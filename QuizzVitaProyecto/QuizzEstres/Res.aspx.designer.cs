@@ -11,7 +11,7 @@ namespace QuizzVitaProyecto.QuizzEstres
 {
 
 
-    public partial class Resultados
+    public partial class Res
     {
 
         /// <summary>
