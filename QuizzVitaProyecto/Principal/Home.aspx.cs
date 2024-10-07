@@ -11,7 +11,11 @@ namespace QuizzVitaProyecto.Principal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["NombreUsuario"] != null)
+            {
+                string nombreUsuario = Session["NombreUsuario"].ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "mostrarModal", $"mostrarModal('{nombreUsuario}');", true);
+            }
         }
     }
 }

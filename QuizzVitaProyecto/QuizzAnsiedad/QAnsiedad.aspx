@@ -58,7 +58,7 @@
                         </ItemTemplate>
                     </asp:Repeater>
 
-                    <div class="row justify-content-center" style="margin-top:5%; marg">
+                    <div class="row justify-content-center" style="margin-top:5%; ">
                         <div class="col-lg-4 text-center">
                             <asp:Button ID="btnSubmit" runat="server" Text="Enviar Respuestas" OnClick="btnSubmit_Click" Height="40px" Font-Size="15px" BackColor="#A4ECD2" BorderStyle="None" />
                         </div>

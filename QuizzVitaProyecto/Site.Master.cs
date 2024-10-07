@@ -9,6 +9,7 @@ using System.Web.Http;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebGrease.Activities;
 
 namespace QuizzVitaProyecto
 {
@@ -18,28 +19,12 @@ namespace QuizzVitaProyecto
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack && Request.Form["email"] != null)
-            {
-                btnLogin_Click(sender, e);
-            }
+            
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
-        {
-            string email = Request.Form["email"];
-            string password = Request.Form["password"];
+        
 
-            if (AuthenticateUser(email, password))
-            {
-                FormsAuthentication.SetAuthCookie(email, false);
-                Response.Redirect("~/Principal/Home.aspx");
-               
-            }
-            else
-            {
-                Response.Write("<script>alert('Correo electrónico o contraseña incorrectos');</script>");
-            }
-        }
+
 
         private bool AuthenticateUser(string email, string password)
         {
@@ -66,6 +51,44 @@ namespace QuizzVitaProyecto
                     return count == 1;
                 }
             }
+        }
+        // Método para obtener el nombre del usuario basado en su correo electrónico
+        private string ObtenerNombreUsuario(string email)
+        {
+            string nombreUsuario = string.Empty;
+
+            // Define tu cadena de conexión a la base de datos
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            // Define la consulta SQL
+            string query = "SELECT Nombre FROM Users WHERE Email = @Email";
+
+            // Usar ADO.NET para hacer la consulta a la base de datos
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+
+                    try
+                    {
+                        con.Open();
+                        object result = cmd.ExecuteScalar(); // Obtener el resultado de la consulta
+
+                        if (result != null)
+                        {
+                            nombreUsuario = result.ToString(); // Almacenar el nombre del usuario
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de errores
+                        Console.WriteLine("Error al obtener el nombre del usuario: " + ex.Message);
+                    }
+                }
+            }
+
+            return nombreUsuario;
         }
 
         private string HashPassword(string password)

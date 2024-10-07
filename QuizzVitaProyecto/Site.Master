@@ -13,7 +13,8 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bcootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- CSS personalizado -->
     <style>
@@ -209,6 +210,59 @@
             width: 46px;
             height: 46px;
         }
+
+        /* Estilos generales del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semitransparente */
+}
+
+.modal-content {
+    background-color: #a9d9c7; /* Color similar al de la imagen */
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user-icon {
+    margin: 20px 0;
+}
+
+.user-icon img {
+    width: 100px;
+    height: 100px;
+}
+
+.btn-logout {
+    background-color: #333; /* Color oscuro del botón */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background-color: #555;
+}
     </style>
 </head>
 <body>
@@ -238,6 +292,8 @@
     aria-controls="offcanvasNavbar"
     aria-label="Toggle navigation"
     style="cursor: pointer; border: none; margin-bottom: 3%; margin-top: 3%;" />
+                    </div>
+
 
 <!-- Offcanvas para el menú desplegable -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -276,13 +332,13 @@
                                     </div>
                                     <form id="loginForm">
                                         <label for="email" class="label">Correo electrónico</label>
-                                        <input type="email" id="email" name="email" class="input" />
+                                        <asp:TextBox ID="email" runat="server" CssClass="input" TextMode="Email" placeholder="Correo electrónico" />
 
                                         <label for="password" class="label">Contraseña</label>
-                                        <input type="password" id="password" name="password" class="input" />
+                                        <asp:TextBox ID="password" runat="server" CssClass="input" TextMode="Password" placeholder="Contraseña" />
 
                                         <div class="button-container">
-                                            <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-login" Text="Iniciar sesión" OnClick="btnLogin_Click" />
+                                            <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-login" Text="Iniciar sesión"  />
                                             <button type="button" class="btn btn-register" id="openRegisterModal">Registrarse</button>
                                         </div>
                                     </form>
@@ -327,6 +383,9 @@
 </div>
 
 
+
+
+
             </div>
         </nav>
 
@@ -339,7 +398,12 @@
         </footer>
     </form>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    
+
+
+</body>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script>
     function validateForm() {
         var name = document.getElementById('name').value;
@@ -390,6 +454,8 @@
         submitRegisterForm(password);
         return false; // Evita el envío del formulario por defecto
     }
+   
+
 
     function submitRegisterForm(password) {
         console.log('submitRegisterForm called');
@@ -417,6 +483,27 @@
                 alert('Error en el registro');
             });
     }
+
+    // Mostrar el nombre del usuario en el modal de bienvenida
+    function openWelcomeModal() {
+        var userName = '<%= Session["Nombre"] != null ? Session["Nombre"].ToString() : "" %>';
+        var userEmail = '<%= Session["Email"] != null ? Session["Email"].ToString() : "" %>';
+
+        document.getElementById("userGreeting").innerText = "Hola, " + userName + "!";
+        document.getElementById("userEmail").innerText = userEmail; // Mostrar el email
+        document.getElementById("welcomeModal").style.display = "block"; // Mostrar el modal
+    }
+
+    // Función para cerrar sesión
+    function logout() {
+        window.location.href = '/Logout.aspx'; // Redirigir a la página de cierre de sesión
+    }
+
+    // Función para cerrar el modal
+    function closeWelcomeModal() {
+        document.getElementById("welcomeModal").style.display = "none"; // Ocultar el modal
+    }
+
 
     function closeModal() {
         document.getElementById('loginModal').style.display = 'none';
@@ -452,7 +539,4 @@
 </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-</body>
 </html>
